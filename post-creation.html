@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create a New Post</title>
+    <meta name="description" content="a webpage for users to create posts"/>
+    <meta name="author" content="Connor Ettinger" />
+`   <link rel="stylesheet" href="./post_creation.css" type="text/css" />
+  </head>
+  <body class="center-me">
+      <h1>Create a new post</h1>
+      <form action="/index.html" method="post">
+        <!-- Note: in the future, I'm going to use js or something to automatically get the username of the person posting it -->
+        <input type="hidden" id="username" name="username" value="Error: Username can't be found" required>
+        <!-- Title. TODO: limit length, limit chars -->
+        <div id="titleDiv">
+          <label for="title">Post title:</label>
+          <input type="text" id="title" name="title" required><br><br>
+        </div>
+        <!-- Upload the picture. -->
+        <div id="picUploadDiv">
+          <label for="pic">Upload a picture (optional):</label><br>
+          <input type="file" id="pic" name="pic" accept=".jpg, .jpeg, .png"><br><br>
+        </div>
+        <!-- Write the post description -->
+        <div id="descriptionDiv">
+          <label for="description">Post description (optional):</label><br>
+          <textarea name="description"></textarea><br><br>
+        </div>
+        <!-- List the ingredients -->
+        <div id="ingredientsDiv">
+          <fieldset>
+            <legend>Ingredients:</legend>
+            <ul id="ingredientList"></ul>
+            <input type="text" id="ingredientInput" name="ingredient" placeholder="add ingredient" required>
+            <button type="button" onclick="addIngredient()">Add An Ingredient</button>
+          </fieldset>
+          <br><br>
+        </div>
+        <!-- Write the instructions -->
+        <div id="instructionsDiv">
+          <label for="instructions">Instructions:</label><br>
+          <textarea name="instructions" required></textarea><br><br>
+        </div>
+        <!-- List the tags -->
+        <div id="tagsDiv">
+          <fieldset id="tagHolder">
+            <legend>Tags:</legend>
+            <input type="text" name="tagInput" id="tagInput" placeholder="add tag"><br>
+            <button type="button" onclick="addTag()">Add A Tag</button>
+          </fieldset>
+          <br><br>
+        </div>
+        <!-- Submit everything -->
+        <input type="submit" value="Create Post">
+      </form>
+    <script src="./post_creation.js"></script>
+  </body>
+</html>
