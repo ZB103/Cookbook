@@ -1,6 +1,6 @@
 -- create scheme
 
-CREATE SCHEME `cookbook_database`;
+CREATE SCHEMA `cookbook_database`;
 
 --------------------------------------------------------- 
 -- create table
