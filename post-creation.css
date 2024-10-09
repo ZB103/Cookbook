@@ -1,0 +1,7 @@
+/* CSS page written by Connor Ettinger */
+.center-me {text-align: center;}
+textarea {
+  width: 400px;
+  height: 200px;
+}
+fieldset {margin: 0px 420px}
