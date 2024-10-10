@@ -5,12 +5,12 @@
     <title>Create a New Post</title>
     <meta name="description" content="a webpage for users to create posts on Cookbook"/>
     <meta name="author" content="Connor Ettinger" />
-`   <link rel="stylesheet" href="./post_creation.css" type="text/css" />
+`   <link rel="stylesheet" href="./post-creation.css" type="text/css" />
   </head>
   <body class="center-me">
       <h1>Create a new post</h1>
       <!-- Right now, the submit button just takes you back to the home page (theoretically). Later we're going to implement it so that it actually does something with the data -->
-      <form action="/main.html" method="post">
+      <form action="./main.html" method="post">
         <!-- Note: in the future, I'm going to use js or something to automatically get the username of the person posting it -->
         <input type="hidden" id="username" name="username" value="Error: Username can't be found" required>
         <!-- The title -->
@@ -56,6 +56,6 @@
         <!-- Submit everything -->
         <input type="submit" value="Create Post">
       </form>
-    <script src="./post_creation.js"></script>
+    <script src="./post-creation.js"></script>
   </body>
 </html>
