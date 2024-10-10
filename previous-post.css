@@ -1,0 +1,14 @@
+#post-holder {
+  border-style: solid;
+  border-color: black;
+  /* border-width: 20px; */
+}
+
+.post {
+  border-style: solid;
+  border-color: grey;
+  border-width: 2px;
+  border-radius: 20px;
+  margin: 5px;
+  padding: 5px;
+}
