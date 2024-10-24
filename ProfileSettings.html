@@ -6,7 +6,8 @@
     <meta name="description" content="description" />
     <meta name="author" content="author" />
     <meta name="keywords" content="keywords" />
-    <link rel="stylesheet" href="./stylesheet.css" type="text/css" />
+    <link rel="stylesheet" href="./main.css" type="text/css" />
+    <link rel="stylesheet" href="./profileSettings.css" type="text/css" />
     <style type="text/css">
       .body {
         width: auto;
@@ -19,7 +20,7 @@
       <!--Title-->
       <h1>Profile Settings</h1>
       <!--Button that goes to home screen - needs implementation-->
-      <input type="button" value="< Return Home" />
+      <input class="returnHome" type="button" value="< Return Home" />
       <hr />
       <hr />
 
@@ -28,8 +29,8 @@
       <!--Display Name setting-->
       <big><strong>Display Name: </strong>Placeholder Jones</big>
       <p></p>
-      <input type="text" placeholder="Enter new name" />
-      <input type="button" value="Save" />
+      <input class="enterInfo" type="text" placeholder="Enter new name" />
+      <input class="saveButton" type="button" value="Save" />
 
       <p></p>
 
@@ -37,18 +38,18 @@
       <big><strong>Profile Picture</strong></big>
       <p></p>
       <input type="image" />
-      <input type="button" value="Save" />
+      <input class="saveButton" type="button" value="Save" />
 
       <p></p>
 
       <!--Biography setting-->
       <big><strong>Account Biography</strong></big>
       <p></p>
-      <textarea rows="10" cols="85" placeholder="Enter new account biography">
+      <textarea class="bioArea" rows="10" cols="85" placeholder="Enter new account biography">
 Placeholder Bio</textarea
       >
       <p></p>
-      <input type="button" value="Save" />
+      <input class="saveButton" type="button" value="Save" />
 
       <p></p>
 
@@ -56,14 +57,14 @@ Placeholder Bio</textarea
       <p>
         <big><strong>Email: </strong>placeholder123@gmail.com</big>
       </p>
-      <input type="text" placeholder="Enter new email" />
-      <input type="button" value="Save" />
+      <input class="enterInfo" type="text" placeholder="Enter new email" />
+      <input class="saveButton" type="button" value="Save" />
       <p>
         <big><strong>Backup Email: </strong>placerholder@hotmail.com</big>
-        <input type="button" value="Remove" />
+        <input class="removeButton" type="button" value="Remove" />
       </p>
-      <input type="text" placeholder="Enter new email" />
-      <input type="button" value="Save" />
+      <input class="enterInfo" type="text" placeholder="Enter new email" />
+      <input class="saveButton" type="button" value="Save" />
 
       <p></p>
 
@@ -71,11 +72,11 @@ Placeholder Bio</textarea
       <p>
         <big><strong>Password</strong></big>
       </p>
-      <input type="text" placeholder="Enter current password" />
-      <input type="text" placeholder="Enter new password" />
-      <input type="text" placeholder="Re-enter new password" />
+      <input class="enterInfo" type="text" placeholder="Enter current password" />
+      <input class="enterInfo" type="text" placeholder="Enter new password" />
+      <input class="enterInfo" type="text" placeholder="Re-enter new password" />
       <p></p>
-      <input type="button" value="Save" />
+      <input class="saveButton" type="button" value="Save" />
 
       <p></p>
 
@@ -86,7 +87,7 @@ Placeholder Bio</textarea
       <!--Font size setting-->
       <p>
         Font size
-        <select>
+        <select class="selecter">
           <option value="100">100%</option>
           <option value="75">75%</option>
           <option value="125">125%</option>
@@ -95,7 +96,7 @@ Placeholder Bio</textarea
       <!--Color contrast setting-->
       <p>
         Color contrast
-        <select>
+        <select class="selecter">
           <option value="normal">Normal</option>
           <option value="low">Low Contrast</option>
           <option value="high">High Contrast</option>
@@ -103,7 +104,7 @@ Placeholder Bio</textarea
       </p>
 
       <p></p>
-      <input type="button" value="Save" />
+      <input class="saveButton" type="button" value="Save" />
 
       <p></p>
 
@@ -113,20 +114,20 @@ Placeholder Bio</textarea
       </p>
       <!--Email display setting-->
       <p>
-        <input type="checkbox" />
+        <input class="displayCheckbox" type="checkbox" />
         Display email
       </p>
       <!--Account visibility setting-->
       <p>
         Who can view your account?
-        <select>
+        <select class="selecter">
           <option value="everyone">Everyone</option>
           <option value="account">Only people with an account</option>
           <option value="friends">Only my friends</option>
           <option value="noone">No one</option>
         </select>
       </p>
-      <input type="button" value="Save" />
+      <input class="saveButton" type="button" value="Save" />
 
       <p></p>
 
@@ -149,8 +150,8 @@ Placeholder Bio</textarea
         EVERYTHING in regards to your account. All posts and other activity will
         be permanently deleted from Cookbook.
       </p>
-      <input type="button" value="ARCHIVE ACCOUNT" />
-      <input type="button" value="DELETE ACCOUNT" />
+      <input class="archiveButton" type="button" value="ARCHIVE ACCOUNT" />
+      <input class="deleteButton" type="button" value="DELETE ACCOUNT" />
     </center>
   </body>
 </html>

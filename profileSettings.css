@@ -1,0 +1,79 @@
+.returnHome {
+    background-color: #732C2C;
+    color: #F7FFD1;
+    border-radius: 8px;
+    width: 130px;
+    height: 30px;
+    font-size: 17px;
+}
+
+.returnHome:hover {
+    background-color: #ae4444;
+}
+
+.saveButton {
+    background-color: #732C2C;
+    color: #F7FFD1;
+    border-radius: 8px;
+}
+
+.saveButton:hover {
+    background-color: #ae4444;
+}
+
+.bioArea {
+    background-color: #f7fcdf;
+    border-style: solid; 
+    border-color: #435C3E;
+    border-radius: 10px;
+}
+
+.removeButton {
+    background-color: #732C2C;
+    color: #F7FFD1;
+    border-radius: 8px;
+}
+
+.removeButton:hover {
+    background-color: #ae4444;
+}
+
+.enterInfo {
+    background-color: #f7fcdf;
+    border-style: solid; 
+    border-color: #435C3E;
+    border-radius: 10px;
+}
+
+.selecter {
+    background-color: #f7fcdf;
+    border-style: solid; 
+    border-color: #435C3E;
+    border-radius: 10px;
+}
+
+.displayCheckbox {
+    border-style: solid; 
+    border-color: #435C3E;
+    border-radius: 10px;
+}
+
+.archiveButton {
+    background-color: #732C2C;
+    color: #F7FFD1;
+    border-radius: 8px;
+}
+
+.archiveButton:hover {
+    background-color: #ae4444;
+}
+
+.deleteButton {
+    background-color: #732C2C;
+    color: #F7FFD1;
+    border-radius: 8px;
+}
+
+.deleteButton:hover {
+    background-color: #ae4444;
+}
