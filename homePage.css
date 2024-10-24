@@ -1,0 +1,133 @@
+.searchBar {
+    padding-left: 110px;
+    height: 40px;
+}
+
+.searchInput {
+    width: 1250px; 
+    height: 30px;
+    background-color: #f7fcdf;
+    border-style: solid; 
+    border-color: #435C3E;
+    border-radius: 10px;
+    margin-left: 250px; 
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-family: 'Ubuntu', sans-serif;
+
+}
+
+.navbar {
+    float: left; 
+    border-style: solid; 
+    border-color: #435C3E;
+    border-radius: 8px;
+    height: 374px; 
+    width: 129px;
+    margin-top: 10px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li a {
+    display: block;
+    border-color: #435C3E;
+    background-color: #732C2C;
+    color: #F7FFD1;
+    height: 74.8px; 
+    width: 129px; 
+    font-size: 25px;
+    text-align: center;
+    text-decoration: none;
+    font-family: "Ubuntu", sans-serif;
+}
+
+li a:hover {
+    background-color: #ae4444;
+}
+
+.createPost {
+    height: 80px; 
+    width: 80px;
+    margin-left: 25px; 
+    font-size: 90px; 
+    text-align: center;
+    margin-top: 200px;
+    background-color: #F7FFD1;
+    border-style: none;
+    color: #435C3E;
+
+}
+
+.createPost:hover {
+    background-color: #f3fdc4;
+}
+
+.container {
+    padding-left: 110px; 
+    padding-top: 20px; 
+    border-style: solid;
+    border-width: 1px;
+    border-color: #435C3E;
+    height: 820px; 
+    width: 1590px; 
+    margin-left: 165px;
+    margin-top: 10px;
+}
+
+.post {
+    height: 160px; 
+    width: 1445px; 
+    margin-left: 4px; 
+    border-style: solid;
+    border-width: 1px; 
+    border-color: #435C3E;
+}
+
+.clickPost {
+    height: 100px; 
+    width: 1440px; 
+}
+
+.interactPost {
+    height: 60px; 
+    width: 478.5px;
+    background-color: #732C2C;
+    border-style: none;
+    color: #F7FFD1;
+    font-family: "Ubuntu", sans-serif;
+    font-size: 30px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.interactPost:hover {
+    background-color: #ae4444;
+}
+
+.pagination {
+    display: inline-block;
+    font-size: 40px;
+    margin-left: 610px;
+    margin-top: 20px;
+    text-align: center;
+}
+  
+.pagination a {
+    background-color: #732C2C;
+    color: #F7FFD1;
+    border-radius: 8px;
+    border-style: none;
+    float: left;
+    padding: 6px 50px;
+    text-decoration: none;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.pagination a:hover {
+    background-color: #ae4444;
+}
