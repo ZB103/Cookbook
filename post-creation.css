@@ -5,3 +5,78 @@ textarea {
   height: 200px;
 }
 fieldset {margin: 0px 420px}
+
+.titleInput {
+  background-color: #f7fcdf;
+  border-style: solid; 
+  border-color: #435C3E;
+  border-radius: 10px;
+}
+
+.pictueButton {
+  background-color: #732C2C;
+  color: #F7FFD1;
+  border-radius: 8px;
+}
+
+.pictueButton:hover {
+  background-color: #ae4444;
+}
+
+.descriptionInput {
+  background-color: #f7fcdf;
+  border-style: solid; 
+  border-color: #435C3E;
+  border-radius: 10px;
+}
+
+.ingredientInput {
+  background-color: #f7fcdf;
+  border-style: solid; 
+  border-color: #435C3E;
+  border-radius: 10px;
+}
+
+.ingredientButton {
+  background-color: #732C2C;
+  color: #F7FFD1;
+  border-radius: 8px;
+}
+
+.ingredientButton:hover {
+  background-color: #ae4444;
+}
+
+.instructionInput {
+  background-color: #f7fcdf;
+  border-style: solid; 
+  border-color: #435C3E;
+  border-radius: 10px;
+}
+
+.tagInput {
+  background-color: #f7fcdf;
+  border-style: solid; 
+  border-color: #435C3E;
+  border-radius: 10px;
+}
+
+.tagButton {
+  background-color: #732C2C;
+  color: #F7FFD1;
+  border-radius: 8px;
+}
+
+.tagButton:hover {
+  background-color: #ae4444;
+}
+
+.createPostButton {
+  background-color: #732C2C;
+  color: #F7FFD1;
+  border-radius: 8px;
+}
+
+.createPostButton:hover {
+  background-color: #ae4444;
+}

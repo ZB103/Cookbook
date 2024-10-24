@@ -15,6 +15,9 @@
     background-color: #732C2C;
     color: #F7FFD1;
     border-radius: 8px;
+    width: 90px;
+    height: 25px;
+    font-size: 14px;
 }
 
 .saveButton:hover {
@@ -26,12 +29,16 @@
     border-style: solid; 
     border-color: #435C3E;
     border-radius: 10px;
+    font-size: 18px;
 }
 
 .removeButton {
     background-color: #732C2C;
     color: #F7FFD1;
     border-radius: 8px;
+    width: 90px;
+    height: 25px;
+    font-size: 14px;
 }
 
 .removeButton:hover {
@@ -43,6 +50,9 @@
     border-style: solid; 
     border-color: #435C3E;
     border-radius: 10px;
+    width: 200px;
+    height: 30px;
+    font-size: 15px;
 }
 
 .selecter {
@@ -50,18 +60,27 @@
     border-style: solid; 
     border-color: #435C3E;
     border-radius: 10px;
+    width: 100px;
+    height: 25px;
+    font-size: 15px;
 }
 
 .displayCheckbox {
     border-style: solid; 
     border-color: #435C3E;
     border-radius: 10px;
+    width: 25px;
+    height: 15px;
+    font-size: 14px;
 }
 
 .archiveButton {
     background-color: #732C2C;
     color: #F7FFD1;
     border-radius: 8px;
+    width: 150px;
+    height: 25px;
+    font-size: 14px;
 }
 
 .archiveButton:hover {
@@ -72,6 +91,9 @@
     background-color: #732C2C;
     color: #F7FFD1;
     border-radius: 8px;
+    width: 150px;
+    height: 25px;
+    font-size: 14px;
 }
 
 .deleteButton:hover {

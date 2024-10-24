@@ -1,7 +1,7 @@
 // Page written by Connor Ettinger
 
 function redirectHome(){
-  window.location.assign("./main.html");
+  window.location.assign("./homePage.html");
 }
 
 function redirectToPost(postNumber){

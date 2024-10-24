@@ -2,9 +2,10 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>previous post</title>
+    <title> Cookbook - Previous Post</title>
     <meta name="description" content="shows the previous posts that you have made"/>
     <meta name="author" content="Connor Ettinger" />
+    <link rel="stylesheet" href="./main.css" type="text/css" />
     <link rel="stylesheet" href="./previous-post.css" type="text/css" />
   </head>
   <body>
@@ -26,8 +27,8 @@
         <p>Likes: 1</p>
       </div>
     </div>
-    <button onclick="pageOver(0)"> &lt;&lt; </button>
-    <button style="float: right;" onclick="pageLeft(1)"> &gt;&gt; </button>
+    <button class="pagination" onclick="pageOver(0)"> &lt;&lt; </button>
+    <button class="pagination" style="float: right;" onclick="pageLeft(1)"> &gt;&gt; </button>
     <script src="./previous-post.js"></script>
   </body>
 </html>
