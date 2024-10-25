@@ -1,5 +1,5 @@
 .searchBar {
-    padding-left: 70px;
+    padding-left: 80px;
     height: 40px;
 }
 
@@ -72,14 +72,13 @@ li a:hover {
 }
 
 .container {
-    padding-left: 110px; 
     padding-top: 20px; 
     border-style: solid;
     border-width: 1px;
     border-color: #435C3E;
     border-radius: 8px;
     height: 580px; 
-    width: 1170px; 
+    width: 1300px; 
     margin-left: 165px;
     margin-top: 10px;
 }
@@ -87,7 +86,6 @@ li a:hover {
 .post {
     height: 150px; 
     width: 1050px; 
-    margin-left: 4px; 
     border-style: solid;
     border-width: 1px; 
     border-color: #435C3E;
@@ -96,7 +94,8 @@ li a:hover {
 
 .clickPost {
     height: 100px; 
-    width: 1440px; 
+    width: 1440px;
+    text-align: justify; 
 }
 
 .interactPost {
@@ -118,7 +117,6 @@ li a:hover {
 .pagination {
     display: inline-block;
     font-size: 40px;
-    margin-left: 410px;
     margin-top: 20px;
     text-align: center;
 }
