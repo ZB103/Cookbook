@@ -1,14 +1,32 @@
 #post-holder {
   border-style: solid;
   border-color: black;
-  /* border-width: 20px; */
+  border-width: 1px; 
+  border-color: #435C3E;
+  border-radius: 8px;
 }
 
 .post {
   border-style: solid;
-  border-color: grey;
-  border-width: 2px;
-  border-radius: 20px;
+  border-width: 1px; 
+  border-color: #435C3E;
+  border-radius: 8px;
   margin: 5px;
   padding: 5px;
+}
+
+.pagination {
+  background-color: #732C2C;
+  color: #F7FFD1;
+  border-radius: 8px;
+  border-style: none;
+  text-decoration: none;
+  font-family: 'Ubuntu', sans-serif;
+  width: 50px;
+  height: 30px;
+  font-size: 20px;
+}
+
+.pagination:hover {
+  background-color: #ae4444;
 }

@@ -73,6 +73,7 @@ li a:hover {
     border-style: solid;
     border-width: 1px;
     border-color: #435C3E;
+    border-radius: 8px;
     height: 820px; 
     width: 1590px; 
     margin-left: 165px;
@@ -86,6 +87,7 @@ li a:hover {
     border-style: solid;
     border-width: 1px; 
     border-color: #435C3E;
+    border-radius: 8px;
 }
 
 .clickPost {
