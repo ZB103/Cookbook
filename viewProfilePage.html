@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cookbook - My Profile</title>
+    <title>Cookbook - My Posts</title>
     <meta name="description" content="description" />
     <meta name="author" content="author" />
     <meta name="keywords" content="keywords" />
@@ -11,16 +11,120 @@
       body {
         width: auto;
       }
+      h1 {
+        font-size: 50px;
+      }
+      h2 {
+        padding: 0px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        font-size: 25px;
+        font-weight: normal;
+      }
+      img {
+        width: 80px;
+        height: auto;
+        border-radius: 50px;
+        border-color: black;
+        border-style: solid;
+      }
+      .container {
+        padding-left: 110px; 
+        padding-top: 20px; 
+        border-style: solid;
+        border-width: 1px;
+        border-color: #435C3E;
+        border-radius: 8px;
+        height: 580px; 
+        width: 1170px; 
+        margin-left: 0px;
+        margin-top: 10px;
+      }
+
+      .post {
+        height: 150px; 
+        width: 800px; 
+        border-style: solid;
+        border-width: 1px; 
+        border-color: #435C3E;
+        border-radius: 8px;
+      }
+
+      .clickPost {
+        height: 100px; 
+        width: 1440px; 
+      }
+
+      .interactPost {
+        /*align btn to the right and make smaller*/
+        height: 50px; 
+        width: 200px;
+        background-color: #732C2C;
+        border-style: none;
+        color: #F7FFD1;
+        font-family: "Ubuntu", sans-serif;
+        font-size: 30px;
+        text-align: center;
+        border-radius: 8px;
+      }
+
+      .interactPost:hover {
+        background-color: #ae4444;
+      }
+
+      .navbar {
+        float: left; 
+        border-style: solid; 
+        border-color: #435C3E;
+        border-radius: 8px;
+        height: 374px; 
+        width: 129px;
+        margin-top: 200px;
+      }
+
     </style>
   </head>
   <body>
-    <center>
-      <!--Title-->
-      <h1>My Posts</h1>
-      <!--Button that goes to home screen-->
-      <a href="main.html"><input type="button" value="< Return Home" /></a>
-      <hr />
-      <hr />
-    </center>
+    <div class="navbar">
+      <ul> 
+        <li><a href="./previous-post.html"> View Profile </a></li>
+        <li><a href="./ProfileSettings.html">  Settings </a></li>
+        <li><a href="./BookmarkPage.html"> Bookmarks </a></li>
+        <li><a href="./ProfileSettings.html"> Following </a></li>
+        <li><a href="./ProfileSettings.html"> Followers </a></li>
+      </ul> 
+      <div onclick="location.href='post-creation.html'" class="createPost"> + </div>
+    </div>
+    <main>
+      <center>
+        <!--Title-->
+        <h1>My Posts</h1>
+        <!--Button that goes to home screen-->
+        <a href="main.html"><input type="button" value="< Return Home" /></a>
+        <hr />
+        <hr />
+        <img src="imgs/test-pfp.png" alt="User's profile picture" />
+        <h2>[USERNAME]</h2>
+
+        <!--dummy posts-->
+        <div class="container"> 
+          <div class="post">
+            <div onclick="location.href='destination.html'" class="clickPost"> Post One: Chikn </div>
+            <button onclick="location.href='test.html'" type="button" class="interactPost"> Delete Post </button>
+          </div>
+          <br> <div class="post">
+            <div onclick="location.href='destination.html'" class="clickPost"> Post Two: Beff </div>
+            <button onclick="location.href='test.html'" type="button" class="interactPost"> Delete Post </button>
+          </div>
+          <br> <div class="post">
+            <div onclick="location.href='destination.html'" class="clickPost"> Post Three: Donkeh </div>
+            <button onclick="location.href='test.html'" type="button" class="interactPost"> Delete Post </button>
+          </div>
+          <br> <div class="post">
+            <div onclick="location.href='destination.html'" class="clickPost"> Post Four: 'Gater </div>
+            <button onclick="location.href='test.html'" type="button" class="interactPost"> Delete Post </button>
+          </div>
+      </center>
+    </main>
   </body>
 </html>
