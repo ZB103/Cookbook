@@ -94,12 +94,30 @@
         background-color: #ae4444;
       }
 
+      .searchBar {
+        padding-left: 80px;
+        height: 40px;
+      }
+
+      .searchInput {
+        width: 900px; 
+        height: 30px;
+        background-color: #f7fcdf;
+        border-style: solid; 
+        border-color: #435C3E;
+        border-radius: 10px;
+        margin-left: 270px; 
+        margin-bottom: 20px;
+        font-size: 20px;
+        font-family: 'Ubuntu', sans-serif;
+      }
+
     </style>
   </head>
   <body>
     <div class="navbar">
       <ul> 
-        <li><a href="./previous-post.html"> View Profile </a></li>
+        <li><a href="./viewProfilePage.html"> View Profile </a></li>
         <li><a href="./ProfileSettings.html">  Settings </a></li>
         <li><a href="./BookmarkPage.html"> Bookmarks </a></li>
         <li><a href="./ProfileSettings.html"> Following </a></li>
@@ -115,6 +133,13 @@
         <a href="homePage.html"><input type="button" value="< Return Home" /></a>
         <hr />
         <hr />
+
+        <!--search bar-->
+        <search class="searchBar">
+          <form>
+            <input class="searchInput" name="fsrch" id="fsrch" placeholder="Search">
+          </form>
+        </search>
 
         <!--dummy posts-->
         <div class="container"> 
