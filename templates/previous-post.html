@@ -5,8 +5,8 @@
     <title> Cookbook - Previous Post</title>
     <meta name="description" content="shows the previous posts that you have made"/>
     <meta name="author" content="Connor Ettinger" />
-    <link rel="stylesheet" href="./main.css" type="text/css" />
-    <link rel="stylesheet" href="./previous-post.css" type="text/css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" type="text/css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='previous-post.css') }}" type="text/css" />
   </head>
   <body>
     <h1>Here are all of the posts that you have made: <button style="float:right" onclick="redirectHome()">Home</button></h1>
@@ -29,6 +29,6 @@
     </div>
     <button class="pagination" onclick="pageOver(0)"> &lt;&lt; </button>
     <button class="pagination" style="float: right;" onclick="pageLeft(1)"> &gt;&gt; </button>
-    <script src="./previous-post.js"></script>
+    <script src="{{ url_for('static', filename='previous-post.js') }}"></script>
   </body>
 </html>

@@ -6,10 +6,10 @@
     <meta name="description" content="description"/>
     <meta name="author" content="author" />
     <meta name="keywords" content="keywords" />
-    <link rel="stylesheet" href="./main.css" type="text/css"/>
-    <link rel="stylesheet" href="./homePage.css" type="text/css"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" type="text/css"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='homePage.css') }}" type="text/css"/>
     <style> @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap'); </style>
-    <script src="./homePage.js"></script>
+    <script src="{{ url_for('static', filename='homePage.js') }}"></script>
   </head>
   <body>
     <h1> Cookbook </h1>

@@ -6,7 +6,7 @@
     <meta name="description" content="description" />
     <meta name="author" content="author" />
     <meta name="keywords" content="keywords" />
-    <link rel="stylesheet" href="./stylesheet.css" type="text/css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" type="text/css" />
     <style type="text/css"></style>
   </head>
   <!--style is temporary and will be shared by sign-in page-->
@@ -40,17 +40,27 @@
   <body>
     <!--logo image-->
     <aside>
-      <img src="imgs/logo.png" alt="Cookbook's logo" />
+      <img src="{{ url_for('static', filename='imgs/logo.png') }}" alt="Cookbook's logo" />
     </aside>
     <!--acct creation fields-->
     <main>
       <h1>Create Account</h1>
-      <p>Enter Username <input type="text" placeholder="Username" /></p>
-      <p>Enter Password <input type="password" placeholder="Password" /></p>
-      <p>Re-Enter Password <input type="password" placeholder="Password" /></p>
-      <p>Enter Email <input type="email" placeholder="Email" /></p>
-      <p><input type="button" value="Let's cook!" /></p>
-      <a href="signInPage.html">Old friend? Click here to sign in!</a>
+      <!-- Backend stuff, don't worry about it -->
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for msg in messages %}
+            <p>{{msg}}</p>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+      <form action="#" method="post">
+        <p>Enter Username <input type="text" placeholder="Username" name="username"/></p>
+        <p>Enter Password <input type="password" placeholder="Password" name="password1"/></p>
+        <p>Re-Enter Password <input type="password" placeholder="Password" name="password2"/></p>
+        <p>Enter Email <input type="email" placeholder="Email" name="email"/></p>
+        <p><input type="submit" value="Let's cook!" /></p>
+      </form>
+      <a href="/login">Old friend? Click here to sign in!</a>
     </main>
   </body>
 </html>
