@@ -1,19 +1,33 @@
-.searchBar {
-    padding-left: 80px;
-    height: 40px;
+
+hr {
+    width: 1480px;
 }
 
-.searchInput {
-    width: 900px; 
+.returnHome {
+    background-color: #732C2C;
+    color: #F7FFD1;
+    border-radius: 8px;
+    width: 130px;
     height: 30px;
-    background-color: #f7fcdf;
-    border-style: solid; 
+    font-size: 17px;
+}
+
+img {
+    width: 90px;
+    height: auto;
+    border-radius: 50px;
     border-color: #435C3E;
-    border-radius: 10px;
-    margin-left: 270px; 
-    margin-bottom: 20px;
-    font-size: 20px;
-    font-family: 'Ubuntu', sans-serif;
+    border-style: solid;
+    border-width: 1px;
+    margin-left: 40px;
+}
+
+.userName {
+    padding: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-size: 25px;
+    font-weight: normal;
 }
 
 .navbar {
@@ -23,7 +37,6 @@
     border-radius: 8px;
     height: 374px; 
     width: 129px;
-    margin-top: 10px;
 }
 
 ul {
@@ -47,27 +60,6 @@ li a {
 
 li a:hover {
     background-color: #ae4444;
-}
-
-.createPost {
-    height: 80px; 
-    width: 80px;
-    margin-left: 10px;
-    margin-top: 100px; 
-    font-size: 90px; 
-    text-align: center;
-    padding-bottom: 32px;
-    padding-left: 9px;
-    padding-right: 8px;
-    background-color: #F7FFD1;
-    border-style: none;
-    color: #435C3E;
-
-}
-
-.createPost:hover {
-    background-color: #e0eab8;
-    border-radius: 10000px;
 }
 
 .container {
@@ -99,7 +91,7 @@ li a:hover {
 
 .interactPost {
     height: 50px; 
-    width: 347.5px;
+    width: 200px;
     background-color: #732C2C;
     border-style: none;
     color: #F7FFD1;
@@ -113,23 +105,30 @@ li a:hover {
     background-color: #ae4444;
 }
 
+.navbar {
+    float: left; 
+    border-style: solid; 
+    border-color: #435C3E;
+    border-radius: 8px;
+    height: 374px; 
+    width: 129px;
+    margin-top: 200px;
+}
+
 .pagination {
     font-size: 40px;
     margin-top: 20px;
     text-align: center;
-}
-  
-.pagination a {
     background-color: #732C2C;
     color: #F7FFD1;
     border-radius: 8px;
     border-style: none;
-    float: left;
     padding: 6px 50px;
+    float: left;
     text-decoration: none;
     font-family: 'Ubuntu', sans-serif;
 }
 
-.pagination a:hover {
+.pagination:hover {
     background-color: #ae4444;
 }

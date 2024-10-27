@@ -6,37 +6,9 @@
     <meta name="description" content="description" />
     <meta name="author" content="author" />
     <meta name="keywords" content="keywords" />
-    <link rel="stylesheet" href="./stylesheet.css" type="text/css" />
-    <style type="text/css"></style>
+    <link rel="stylesheet" href="./main.css" type="text/css" />
+    <link rel="stylesheet" href="./newAccountPage.css" type="text/css" />
   </head>
-  <!--style is temporary and will be shared by sign-in page-->
-  <style>
-    aside {
-      float: left;
-      padding-top: 125px;
-      padding-left: 175px;
-      width: 500px;
-      height: 500px;
-    }
-    main {
-      float: right;
-      padding-top: 100px;
-      padding-right: 100px;
-      text-align: center;
-      width: 500px;
-      height: 400px;
-    }
-    img {
-      width: 100%;
-      height: 100%;
-    }
-    h1 {
-      font-size: 50px;
-    }
-    p {
-      font-size: 25px;
-    }
-  </style>
   <body>
     <!--logo image-->
     <aside>
@@ -45,11 +17,11 @@
     <!--acct creation fields-->
     <main>
       <h1>Create Account</h1>
-      <p>Enter Username <input type="text" placeholder="Username" /></p>
-      <p>Enter Password <input type="password" placeholder="Password" /></p>
-      <p>Re-Enter Password <input type="password" placeholder="Password" /></p>
-      <p>Enter Email <input type="email" placeholder="Email" /></p>
-      <p><input type="button" value="Let's cook!" /></p>
+      <p>Enter Username <input class="enterInfo" type="text" placeholder="Username" /></p>
+      <p>Enter Password <input class="enterInfo" type="password" placeholder="Password" /></p>
+      <p>Re-Enter Password <input class="enterInfo" type="password" placeholder="Password" /></p>
+      <p>Enter Email <input class="enterInfo" type="email" placeholder="Email" /></p>
+      <p><input class="saveButton" type="button" value="Let's cook!" /></p>
       <a href="signInPage.html">Old friend? Click here to sign in!</a>
     </main>
   </body>
