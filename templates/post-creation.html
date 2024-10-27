@@ -33,6 +33,8 @@
             <legend>Ingredients:</legend>
             <ul id="ingredientList"></ul>
             <input class="ingredientInput" type="text" id="ingredientInput" name="ingredient" placeholder="add ingredient" maxlength="20" oninput="limitCharLen('ingredientInput',20)" required>
+            <!-- This is a hidden value that will hold all the ingredients, and acutally be used by the backend to process ingredient data -->
+            <input id="hiddenIngredientList" type="hidden" name="ingredientList" value="">
             <button class="ingredientButton" type="button" onclick="addIngredient()">Add An Ingredient</button>
           </fieldset>
           <br><br>

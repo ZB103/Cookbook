@@ -10,7 +10,7 @@ mydb = mysql.connector.connect(
   password="SQLroot",
   database="cookbook_database"
 )
-cursor = mydb.cursor()
+cursor = mydb.cursor(buffered=True)
 
 # flask stuff
 app = Flask(__name__)
@@ -55,13 +55,13 @@ def new_account():
       settings_path = file_preamble + username + "\\settings.json"
       log_file_path = file_preamble + username + "\\logfile.json"
       if request.form["email"] == None:
-        sql = "INSERT INTO users (username, pass, displayname, settings, `logfile`) VALUES (%s, %s, %s, %s, %s)"
+        sql_cmnd = "INSERT INTO users (username, pass, displayname, settings, `logfile`) VALUES (%s, %s, %s, %s, %s)"
         val = (username, password, username, settings_path, log_file_path)
       else:
         email = request.form["email"]
-        sql = "INSERT INTO users (username, pass, email, displayname, settings, `logfile`) VALUES (%s, %s, %s, %s, %s, %s)"
+        sql_cmnd = "INSERT INTO users (username, pass, email, displayname, settings, `logfile`) VALUES (%s, %s, %s, %s, %s, %s)"
         val = (username, password, email, username, settings_path, log_file_path)
-      cursor.execute(sql, val)
+      cursor.execute(sql_cmnd, val)
       mydb.commit()
       # add user to the session
       session["user"] = username
@@ -81,7 +81,6 @@ def home():
 @app.route("/createPost", methods=["POST","GET"])
 def create_post():
   if request.method == "POST":
-    pass
     username = session["user"]
     # turn the form into a dictionary
     post_dict = post_to_dict(request.form, username)
@@ -95,29 +94,42 @@ def create_post():
     with open(file_path, mode="w", encoding="utf-8") as write_file:
       json.dump(post_dict, write_file)
     # insert post to database
-    sql = "INSERT INTO posts (post_creator, post_title, post_path) VALUES (%s, %s, %s)"
+    sql_cmnd = "INSERT INTO posts (post_creator, post_title, post_path) VALUES (%s, %s, %s)"
     val = (username, post_dict["title"], file_path)
-    cursor.execute(sql, val)
+    cursor.execute(sql_cmnd, val)
     mydb.commit()
     # return home
     return redirect(url_for("home"))
   else:
     return render_template("post-creation.html")
 
+@app.route("/loadPostsPg<number>")
+def load_3_posts(number):
+  number = int(number)
+  post_dict = {0:None, 1:None, 2:None}
+  sql_cmnd = "SELECT post_path FROM posts ORDER BY postid DESC"
+  cursor.execute(sql_cmnd)
+  myresult = cursor.fetchall()
+  for i in range(number, 3):
+    file_path = myresult[i][0]
+    # load post as json from the post's file location
+    with open(file_path, mode="r", encoding="utf-8") as read_file:
+      post_dict[i] = json.load(read_file)
 
-
+  post_json = json.dumps(post_dict)
+  return post_json
 
 def getPassword(username):
   # communicate with database to check if the username matches the password
-  command = f"SELECT pass FROM users WHERE username ='{username}'"
-  cursor.execute(command)
+  sql_cmnd = f"SELECT pass FROM users WHERE username ='{username}'"
+  cursor.execute(sql_cmnd)
   result = cursor.fetchone()
   return result[0]
 
 def check_if_username_exists(username):
   # communicate with database to check if the username exists
-  command = f"SELECT username FROM users"
-  cursor.execute(command)
+  sql_cmnd = f"SELECT username FROM users"
+  cursor.execute(sql_cmnd)
   result = cursor.fetchall()
   for name in result:
     if name[0] == username:
@@ -128,40 +140,25 @@ def post_to_dict(post, username):
   post_dict = {"username": username}
   post_dict["title"] = post["title"]
   post_dict["description"] = post["description"]
-  post_dict["ingredients"] = post["ingredients"]
+  # the ingredients get posted as a string like this: "ingr1, ingr2, etc"
+  # so they must be split into a list of strings before storing as json
+  post_dict["ingredients"] = post["ingredientList"].split(", ")
   post_dict["instructions"] = post["instructions"]
-  post_dict["tags"] = post["tagField"]
+  # the tags also get posted as a string like this: "#tag1, #tag2, etc"
+  # so they must also be split into a list of strings before storing
+  post_dict["tags"] = post["tagField"].split(", ")
   return post_dict
 
 def generate_post_id():
   # get the post with the highest id
-  sql = "SELECT postid FROM posts ORDER BY postid DESC"
-  cursor.execute(sql)
+  sql_cmnd = "SELECT postid FROM posts ORDER BY postid DESC"
+  cursor.execute(sql_cmnd)
   myresult = cursor.fetchone()
-  return (myresult[0] + 1)
-
-
-# @app.route("/user")
-# def user():
-#   if "user" in session:
-#     user = session["user"]
-#     return f"<h1>{user}</h1>"
-#   else:
-#     return redirect(url_for("login"))
-
-
-# @app.route("/logout")
-# def logout():
-#   if "user" in session:
-#     user = session["user"]
-#     flash(f"{user} has been sucessfully logged out", "info")
-#   session.pop("user", None)
-#   # flash("You have been sucessfully logged out", "info")
-#   return redirect(url_for("login"))
-
-# @app.route("/admin")
-# def admin():
-#   return redirect(url_for("user", name="admin!"))
+  # handle if there are no posts in the database
+  if(myresult == None):
+    return(100)
+  else:
+    return (myresult[0] + 1)
 
 if __name__ == "__main__":
   app.run(debug=True)
