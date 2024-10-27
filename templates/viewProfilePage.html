@@ -16,14 +16,14 @@
     </center>
     <div class="navbar">
       <ul> 
-        <li><a href="./homePage.html"> Return Home </a></li>
-        <li><a href="./ProfileSettings.html">  Settings </a></li>
-        <li><a href="./BookmarkPage.html"> Bookmarks </a></li>
-        <li><a href="./ProfileSettings.html"> Following </a></li>
-        <li><a href="./ProfileSettings.html"> Followers </a></li>
+        <li><a href="/home"> Return Home </a></li>
+        <li><a href="/ProfileSettings">  Settings </a></li>
+        <li><a href="/BookmarkPage"> Bookmarks </a></li>
+        <li><a href="/ProfileSettings"> Following </a></li>
+        <li><a href="/ProfileSettings"> Followers </a></li>
       </ul> 
     </div>
-    <img src="imgs/test-pfp.png" alt="User's profile picture" />
+    <img src="{{ url_for('static', filename='imgs/test-pfp.png') }}" alt="User's profile picture" />
     <a class="userName">[USERNAME] </a>
     <!--dummy posts-->
     <div class="container">
@@ -42,7 +42,7 @@
         </div>
         <button class="pagination" onclick="pageOver(0)"> &laquo; </button>
         <button class="pagination" style="float: right;" onclick="pageLeft(1)"> &raquo; </button>
-        <script src="./previous-post.js"></script>
+        <script src="{{ url_for('static', filename='previous-post.js') }}"></script>
       </center>
     </div>
   </body>

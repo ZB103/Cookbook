@@ -119,6 +119,19 @@ def load_3_posts(number):
   post_json = json.dumps(post_dict)
   return post_json
 
+@app.route("/viewProfilePage")
+def view_profile_page():
+  return render_template("viewProfilePage.html")
+
+@app.route("/ProfileSettings")
+def profile_settings():
+  return render_template("ProfileSettings.html")
+
+@app.route("/BookmarkPage")
+def bookmark_page():
+  return render_template("BookmarkPage.html")
+
+# helper functions
 def getPassword(username):
   # communicate with database to check if the username matches the password
   sql_cmnd = f"SELECT pass FROM users WHERE username ='{username}'"
