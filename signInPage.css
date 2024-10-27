@@ -1,0 +1,48 @@
+aside {
+    float: left;
+    padding-top: 125px;
+    padding-left: 175px;
+    width: 500px;
+    height: 500px;
+}
+
+main {
+    float: right;
+    padding-top: 175px;
+    padding-right: 100px;
+    text-align: center;
+    width: 500px;
+    height: 400px;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+h1 {
+    font-size: 50px;
+}
+  
+p {
+    font-size: 25px;
+}
+
+.enterInfo {
+    background-color: #f7fcdf;
+    border-style: solid; 
+    border-color: #435C3E;
+    border-radius: 10px;
+    width: 200px;
+    height: 30px;
+    font-size: 15px;
+}
+
+.saveButton {
+    background-color: #732C2C;
+    color: #F7FFD1;
+    border-radius: 8px;
+    width: 90px;
+    height: 25px;
+    font-size: 14px;
+}

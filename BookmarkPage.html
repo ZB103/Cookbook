@@ -6,115 +6,24 @@
     <meta name="description" content="description" />
     <meta name="author" content="author" />
     <meta name="keywords" content="keywords" />
-    <link rel="stylesheet" href="./stylesheet.css" type="text/css" />
-    <style type="text/css">
-      h1 {
-        font-size: 50px;
-      }
-      h2 {
-        padding: 0px;
-        padding-top: 0px;
-        padding-bottom: 0px;
-        font-size: 25px;
-        font-weight: normal;
-      }
-      img {
-        width: 80px;
-        height: auto;
-        border-radius: 50px;
-        border-color: black;
-        border-style: solid;
-      }
-      .container {
-        padding-left: 110px; 
-        padding-top: 20px; 
-        border-style: solid;
-        border-width: 1px;
-        border-color: #435C3E;
-        border-radius: 8px;
-        height: 580px; 
-        width: 1170px; 
-        margin-left: 0px;
-        margin-top: 10px;
-      }
-
-      .post {
-        height: 150px; 
-        width: 800px; 
-        border-style: solid;
-        border-width: 1px; 
-        border-color: #435C3E;
-        border-radius: 8px;
-      }
-
-      .clickPost {
-        height: 100px; 
-        width: 1440px; 
-      }
-
-      .interactPost {
-        height: 50px; 
-        width: 200px;
-        background-color: #732C2C;
-        border-style: none;
-        color: #F7FFD1;
-        font-family: "Ubuntu", sans-serif;
-        font-size: 20px;
-        text-align: center;
-        border-radius: 8px;
-      }
-
-      .interactPost:hover {
-        background-color: #ae4444;
-      }
-
-      .navbar {
-        float: left; 
-        border-style: solid; 
-        border-color: #435C3E;
-        border-radius: 8px;
-        height: 374px; 
-        width: 129px;
-        margin-top: 200px;
-      }
-
-      .pagination {
-        background-color: #732C2C;
-        color: #F7FFD1;
-        border-radius: 8px;
-        border-style: none;
-        text-decoration: none;
-        font-family: 'Ubuntu', sans-serif;
-        width: 50px;
-        height: 30px;
-        font-size: 20px;
-      }
-
-      .pagination:hover {
-        background-color: #ae4444;
-      }
-
-      .searchBar {
-        padding-left: 80px;
-        height: 40px;
-      }
-
-      .searchInput {
-        width: 900px; 
-        height: 30px;
-        background-color: #f7fcdf;
-        border-style: solid; 
-        border-color: #435C3E;
-        border-radius: 10px;
-        margin-left: 270px; 
-        margin-bottom: 20px;
-        font-size: 20px;
-        font-family: 'Ubuntu', sans-serif;
-      }
-
-    </style>
+    <link rel="stylesheet" href="./main.css" type="text/css" />
+    <link rel="stylesheet" href="./bookmarkPage.css" type="text/css" />
   </head>
   <body>
+    <center>
+      <!--Title-->
+      <h1>My Bookmarks</h1>
+      <!--Button that goes to home screen-->
+      <a href="homePage.html"><input class="returnHome" type="button" value="< Return Home" /></a>
+      <hr>
+      <hr>
+    </center>
+    <!--search bar-->
+    <search class="searchBar">
+      <form>
+        <input class="searchInput" name="fsrch" id="fsrch" placeholder="Search">
+      </form>
+    </search>
     <div class="navbar">
       <ul> 
         <li><a href="./viewProfilePage.html"> View Profile </a></li>
@@ -122,46 +31,26 @@
         <li><a href="./BookmarkPage.html"> Bookmarks </a></li>
         <li><a href="./ProfileSettings.html"> Following </a></li>
         <li><a href="./ProfileSettings.html"> Followers </a></li>
-      </ul> 
-      <div onclick="location.href='post-creation.html'" class="createPost"> + </div>
+      </ul>
     </div>
-    <main>
+    <!--dummy posts-->
+    <div class="container">
       <center>
-        <!--Title-->
-        <h1>My Bookmarks</h1>
-        <!--Button that goes to home screen-->
-        <a href="homePage.html"><input type="button" value="< Return Home" /></a>
-        <hr />
-        <hr />
-
-        <!--search bar-->
-        <search class="searchBar">
-          <form>
-            <input class="searchInput" name="fsrch" id="fsrch" placeholder="Search">
-          </form>
-        </search>
-
-        <!--dummy posts-->
-        <div class="container"> 
-          <div class="post">
-            <div onclick="location.href='destination.html'" class="clickPost"> Post One: Hi Ron </div>
-            <button onclick="location.href='test.html'" type="button" class="interactPost"> Remove Bookmark </button>
-          </div>
-          <br> <div class="post">
-            <div onclick="location.href='destination.html'" class="clickPost"> Post Two: Hey Billy </div>
-            <button onclick="location.href='test.html'" type="button" class="interactPost"> Remove Bookmark </button>
-          </div>
-          <br> <div class="post">
-            <div onclick="location.href='destination.html'" class="clickPost"> Post Three: That Hurt </div>
-            <button onclick="location.href='test.html'" type="button" class="interactPost"> Remove Bookmark </button>
-          </div>
-          <br> <div class="post">
-            <div onclick="location.href='destination.html'" class="clickPost"> Post Four: Get Stickbugged </div>
-            <button onclick="location.href='test.html'" type="button" class="interactPost"> Remove Bookmark </button>
-          </div>
+        <div class="post">
+          <div onclick="location.href='destination.html'" class="clickPost"> Post One: Hi Ron </div>
+          <button onclick="location.href='test.html'" type="button" class="interactPost"> Remove Bookmark </button>
+        </div>
+        <br> <div class="post">
+          <div onclick="location.href='destination.html'" class="clickPost"> Post Two: Hey Billy </div>
+          <button onclick="location.href='test.html'" type="button" class="interactPost"> Remove Bookmark </button>
+        </div>
+        <br> <div class="post">
+          <div onclick="location.href='destination.html'" class="clickPost"> Post Three: That Hurt </div>
+          <button onclick="location.href='test.html'" type="button" class="interactPost"> Remove Bookmark </button>
+        </div>
+        <button class="pagination" onclick="pageOver(0)"> &laquo; </button>
+        <button class="pagination" style="float: right;" onclick="pageLeft(1)"> &raquo; </button>
+        <script src="./previous-post.js"></script>
       </center>
-      <button class="pagination" onclick="pageOver(0)"> &lt;&lt; </button>
-      <button class="pagination" style="float: right;" onclick="pageLeft(1)"> &gt;&gt; </button>
-      <script src="./previous-post.js"></script>
-    </main>
+    </div>
 </html>

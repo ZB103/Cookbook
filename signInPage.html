@@ -6,37 +6,10 @@
     <meta name="description" content="description" />
     <meta name="author" content="author" />
     <meta name="keywords" content="keywords" />
-    <link rel="stylesheet" href="./stylesheet.css" type="text/css" />
+    <link rel="stylesheet" href="./main.css" type="text/css" />
+    <link rel="stylesheet" href="./signInPage.css" type="text/css" />
     <style type="text/css"></style>
   </head>
-  <!--style is temporary and will be shared by new acct page-->
-  <style>
-    aside {
-      float: left;
-      padding-top: 125px;
-      padding-left: 175px;
-      width: 500px;
-      height: 500px;
-    }
-    main {
-      float: right;
-      padding-top: 175px;
-      padding-right: 100px;
-      text-align: center;
-      width: 500px;
-      height: 400px;
-    }
-    img {
-      width: 100%;
-      height: 100%;
-    }
-    h1 {
-      font-size: 50px;
-    }
-    p {
-      font-size: 25px;
-    }
-  </style>
   <body>
     <!--logo image-->
     <aside>
@@ -45,9 +18,9 @@
     <!--sign in fields-->
     <main>
       <h1>Sign in</h1>
-      <p>Username <input type="text" placeholder="Username" /></p>
-      <p>Password <input type="password" placeholder="Password" /></p>
-      <p><input type="button" value="Let's cook!" /></p>
+      <p>Username <input class="enterInfo" type="text" placeholder="Username" /></p>
+      <p>Password <input class="enterInfo" type="password" placeholder="Password" /></p>
+      <p><input class="saveButton" type="button" value="Let's cook!" /></p>
       <a href="newAccountPage.html">New friend? Click to create an account!</a>
     </main>
   </body>
