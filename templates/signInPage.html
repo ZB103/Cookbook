@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cookbook - Sign-in</title>
+    <meta name="description" content="description" />
+    <meta name="author" content="author" />
+    <meta name="keywords" content="keywords" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" type="text/css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='signInPage.css') }}" type="text/css" />
+    <style type="text/css"></style>
+  </head>
+  <body>
+    <!--logo image-->
+    <aside>
+      <img src="{{ url_for('static', filename='imgs/logo.png') }}" alt="Cookbook's logo" />
+    </aside>
+    <!--sign in fields-->
+    <main>
+      <h1>Sign in</h1>
+      <!-- Backend stuff, don't worry about it -->
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for msg in messages %}
+            <p>{{msg}}</p>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+
+      <form action="#" method="post">
+        <p>Username <input class="enterInfo" type="text" placeholder="Username" name="username"/></p>
+        <p>Password <input class="enterInfo" type="password" placeholder="Password" name="password"/></p>
+        <p><input class="saveButton" type="submit" value="Let's cook!" /></p>
+      </form>
+      <a href="/newAccount">New friend? Click to create an account!</a>
+    </main>
+  </body>
+</html>

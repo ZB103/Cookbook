@@ -6,8 +6,8 @@
     <meta name="description" content="description" />
     <meta name="author" content="author" />
     <meta name="keywords" content="keywords" />
-    <link rel="stylesheet" href="./main.css" type="text/css" />
-    <link rel="stylesheet" href="./profileSettings.css" type="text/css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" type="text/css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='profileSettings.css') }}" type="text/css" />
     <style type="text/css">
       .body {
         width: auto;
@@ -19,7 +19,7 @@
       <!--Title-->
       <h1>Profile Settings</h1>
       <!--Button that goes to home screen-->
-      <a href="homePage.html"><input class="returnHome" type="button" value="< Return Home" /></a>
+      <a href="/home"><input class="returnHome" type="button" value="< Return Home" /></a>
       <hr />
       <hr />
 

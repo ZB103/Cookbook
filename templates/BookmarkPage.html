@@ -6,15 +6,20 @@
     <meta name="description" content="description" />
     <meta name="author" content="author" />
     <meta name="keywords" content="keywords" />
-    <link rel="stylesheet" href="./main.css" type="text/css" />
-    <link rel="stylesheet" href="./bookmarkPage.css" type="text/css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" type="text/css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='bookmarkPage.css') }}" type="text/css" />
+    <style type="text/css">
+      .body {
+        width: auto;
+      }
+    </style>
   </head>
   <body>
     <center>
       <!--Title-->
       <h1>My Bookmarks</h1>
       <!--Button that goes to home screen-->
-      <a href="homePage.html"><input class="returnHome" type="button" value="< Return Home" /></a>
+      <a href="/home"><input class="returnHome" type="button" value="< Return Home" /></a>
       <hr>
       <hr>
     </center>
@@ -26,11 +31,11 @@
     </search>
     <div class="navbar">
       <ul> 
-        <li><a href="./viewProfilePage.html"> View Profile </a></li>
-        <li><a href="./ProfileSettings.html">  Settings </a></li>
-        <li><a href="./BookmarkPage.html"> Bookmarks </a></li>
-        <li><a href="./ProfileSettings.html"> Following </a></li>
-        <li><a href="./ProfileSettings.html"> Followers </a></li>
+        <li><a href="/viewProfilePage"> View Profile </a></li>
+        <li><a href="/ProfileSettings">  Settings </a></li>
+        <li><a href="/BookmarkPage"> Bookmarks </a></li>
+        <li><a href="/ProfileSettings"> Following </a></li>
+        <li><a href="/ProfileSettings"> Followers </a></li>
       </ul>
     </div>
     <!--dummy posts-->

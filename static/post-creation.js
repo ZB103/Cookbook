@@ -47,8 +47,18 @@ function addIngredient(){
   // fourth create a new list element
   let newIngredient = document.createElement("li");
   newIngredient.textContent = ingredientInput;
-  // finally add that list element to the ul
+  // fifth add that list element to the ul
   document.getElementById("ingredientList").appendChild(newIngredient);
+  // finally, add that to the hidden input that will actually be turned in
+  hiddenList = document.getElementById("hiddenIngredientList");
+  let hiddenText;
+  if(hiddenList.value == ""){
+    hiddenText = ingredientInput;
+  } else{
+    hiddenText = hiddenList.value + ", " + ingredientInput;
+  }
+  hiddenList.setAttribute("value", hiddenText);
+  console.log(hiddenList.value);
 }
 
 // function to dynamically add a tag to the page
@@ -96,6 +106,7 @@ function addTag(){
     // set its attributes
     tagField.setAttribute("type","text");
     tagField.setAttribute("id","tagField");
+    tagField.setAttribute("name","tagField");
     /* readonly is weird. you can't just set it, because setAttribute expects the value to be set to something. (e.g., id=tagField)
     So instead, you have to create a readonly attribute, and add it to the tagFireld.
     Very odd...*/
