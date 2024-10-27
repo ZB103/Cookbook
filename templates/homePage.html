@@ -12,7 +12,7 @@
     <script src="{{ url_for('static', filename='homePage.js') }}"></script>
   </head>
   <body>
-    <h1> Cookbook </h1>
+    <h1> Cookbook - Home </h1>
     <search class="searchBar">
       <form>
         <input class="searchInput" name="fsrch" id="fsrch" placeholder="Search">
@@ -20,7 +20,7 @@
     </search>
     <div class="navbar">
       <ul> 
-        <li><a href="./previous-post.html"> View Profile </a></li>
+        <li><a href="./viewProfilePage.html"> View Profile </a></li>
         <li><a href="./ProfileSettings.html">  Settings </a></li>
         <li><a href="./BookmarkPage.html"> Bookmarks </a></li>
         <li><a href="./ProfileSettings.html"> Following </a></li>
@@ -28,7 +28,7 @@
       </ul> 
       <div onclick="location.href='/createPost'" class="createPost"> + </div>
     </div>
-      <div class="container"> 
+      <div class="container">
         <center>
           <div class="post">
             <div onclick="location.href='destination.html'" class="clickPost"> Post One: Apples </div>
@@ -50,7 +50,7 @@
           </div>
           <div class="pagination">
             <a href="#">&laquo;</a>
-            <a href="#">&raquo;</a>
+            <a href="#" style="float: right;">&raquo;</a>
           </div>
         </center>
       </div>

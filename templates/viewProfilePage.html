@@ -7,20 +7,43 @@
     <meta name="author" content="author" />
     <meta name="keywords" content="keywords" />
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" type="text/css" />
-    <style type="text/css">
-      body {
-        width: auto;
-      }
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='viewProfilePage.css') }}" type="text/css" />
   </head>
   <body>
     <center>
-      <!--Title-->
-      <h1>My Posts</h1>
-      <!--Button that goes to home screen-->
-      <a href="main.html"><input type="button" value="< Return Home" /></a>
       <hr />
       <hr />
     </center>
+    <div class="navbar">
+      <ul> 
+        <li><a href="./homePage.html"> Return Home </a></li>
+        <li><a href="./ProfileSettings.html">  Settings </a></li>
+        <li><a href="./BookmarkPage.html"> Bookmarks </a></li>
+        <li><a href="./ProfileSettings.html"> Following </a></li>
+        <li><a href="./ProfileSettings.html"> Followers </a></li>
+      </ul> 
+    </div>
+    <img src="imgs/test-pfp.png" alt="User's profile picture" />
+    <a class="userName">[USERNAME] </a>
+    <!--dummy posts-->
+    <div class="container">
+      <center>
+        <div class="post">
+          <div onclick="location.href='destination.html'" class="clickPost"> Post One: Chikn </div>
+          <button onclick="location.href='test.html'" type="button" class="interactPost"> Delete Post </button>
+        </div>
+        <br> <div class="post">
+          <div onclick="location.href='destination.html'" class="clickPost"> Post Two: Beff </div>
+          <button onclick="location.href='test.html'" type="button" class="interactPost"> Delete Post </button>
+        </div>
+        <br> <div class="post">
+          <div onclick="location.href='destination.html'" class="clickPost"> Post Three: Donkeh </div>
+          <button onclick="location.href='test.html'" type="button" class="interactPost"> Delete Post </button>
+        </div>
+        <button class="pagination" onclick="pageOver(0)"> &laquo; </button>
+        <button class="pagination" style="float: right;" onclick="pageLeft(1)"> &raquo; </button>
+        <script src="./previous-post.js"></script>
+      </center>
+    </div>
   </body>
 </html>

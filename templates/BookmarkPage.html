@@ -7,6 +7,7 @@
     <meta name="author" content="author" />
     <meta name="keywords" content="keywords" />
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" type="text/css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='bookmarkPage.css') }}" type="text/css" />
     <style type="text/css">
       .body {
         width: auto;
@@ -18,9 +19,43 @@
       <!--Title-->
       <h1>My Bookmarks</h1>
       <!--Button that goes to home screen-->
-      <a href="main.html"><input type="button" value="< Return Home" /></a>
-      <hr />
-      <hr />
+      <a href="homePage.html"><input class="returnHome" type="button" value="< Return Home" /></a>
+      <hr>
+      <hr>
     </center>
-  </body>
+    <!--search bar-->
+    <search class="searchBar">
+      <form>
+        <input class="searchInput" name="fsrch" id="fsrch" placeholder="Search">
+      </form>
+    </search>
+    <div class="navbar">
+      <ul> 
+        <li><a href="./viewProfilePage.html"> View Profile </a></li>
+        <li><a href="./ProfileSettings.html">  Settings </a></li>
+        <li><a href="./BookmarkPage.html"> Bookmarks </a></li>
+        <li><a href="./ProfileSettings.html"> Following </a></li>
+        <li><a href="./ProfileSettings.html"> Followers </a></li>
+      </ul>
+    </div>
+    <!--dummy posts-->
+    <div class="container">
+      <center>
+        <div class="post">
+          <div onclick="location.href='destination.html'" class="clickPost"> Post One: Hi Ron </div>
+          <button onclick="location.href='test.html'" type="button" class="interactPost"> Remove Bookmark </button>
+        </div>
+        <br> <div class="post">
+          <div onclick="location.href='destination.html'" class="clickPost"> Post Two: Hey Billy </div>
+          <button onclick="location.href='test.html'" type="button" class="interactPost"> Remove Bookmark </button>
+        </div>
+        <br> <div class="post">
+          <div onclick="location.href='destination.html'" class="clickPost"> Post Three: That Hurt </div>
+          <button onclick="location.href='test.html'" type="button" class="interactPost"> Remove Bookmark </button>
+        </div>
+        <button class="pagination" onclick="pageOver(0)"> &laquo; </button>
+        <button class="pagination" style="float: right;" onclick="pageLeft(1)"> &raquo; </button>
+        <script src="./previous-post.js"></script>
+      </center>
+    </div>
 </html>
