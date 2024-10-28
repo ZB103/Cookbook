@@ -111,7 +111,7 @@ def load_3_posts(number):
   cursor.execute(sql_cmnd)
   myresult = cursor.fetchall()
   start = number*3
-  end = (number*3)+2
+  end = (number*3)+3
   dict_index = 0
   for i in range(start, end):
     file_path = myresult[i][0]
