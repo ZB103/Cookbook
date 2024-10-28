@@ -54,7 +54,7 @@ def new_account():
       file_preamble = "C:\\Users\\Connor\\Documents\\Cookbook\\Users\\"
       settings_path = file_preamble + username + "\\settings.json"
       log_file_path = file_preamble + username + "\\logfile.json"
-      if request.form["email"] == None:
+      if request.form["email"] == None or request.form["email"] == '':
         sql_cmnd = "INSERT INTO users (username, pass, displayname, settings, `logfile`) VALUES (%s, %s, %s, %s, %s)"
         val = (username, password, username, settings_path, log_file_path)
       else:
@@ -110,11 +110,15 @@ def load_3_posts(number):
   sql_cmnd = "SELECT post_path FROM posts ORDER BY postid DESC"
   cursor.execute(sql_cmnd)
   myresult = cursor.fetchall()
-  for i in range(number, 3):
+  start = number*3
+  end = (number*3)+3
+  dict_index = 0
+  for i in range(start, end):
     file_path = myresult[i][0]
     # load post as json from the post's file location
     with open(file_path, mode="r", encoding="utf-8") as read_file:
-      post_dict[i] = json.load(read_file)
+      post_dict[dict_index] = json.load(read_file)
+    dict_index+=1
 
   post_json = json.dumps(post_dict)
   return post_json

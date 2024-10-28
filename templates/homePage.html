@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='homePage.css') }}" type="text/css"/>
     <style> @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap'); </style>
   </head>
-  <body>
+  <body onload="getPosts()">
     <h1> Cookbook - Home </h1>
     <search class="searchBar">
       <form>
@@ -27,33 +27,41 @@
       </ul> 
       <div onclick="location.href='/createPost'" class="createPost"> + </div>
     </div>
-    <div class="container">
-      <center>
-        <div class="post">
-          <div onclick="redirectToPost(0)" class="clickPost"> Post One: Apples </div>
-          <button onclick="location.href='test.html'" type="button" class="interactPost"> Like </button>
-          <button onclick="location.href='test.html'" type="button" class="interactPost"> Comment </button>
-          <button onclick="addtoBookmark()" type="button" class="interactPost"> Bookmark </button>
-        </div>
-        <br> <div class="post">
-          <div onclick="redirectToPost(1)" class="clickPost"> Post Two: Bananas </div>
-          <button onclick="location.href='test.html'" type="button" class="interactPost"> Like </button>
-          <button onclick="location.href='test.html'" type="button" class="interactPost"> Comment </button>
-          <button onclick="addtoBookmark()" type="button" class="interactPost"> Bookmark </button>
-        </div>
-        <br> <div class="post">
-          <div onclick="redirectToPost(2)" class="clickPost"> Post Three: Canteloupe </div>
-          <button onclick="location.href='test.html'" type="button" class="interactPost"> Like </button>
-          <button onclick="location.href='test.html'" type="button" class="interactPost"> Comment </button>
-          <button onclick="addtoBookmark()" type="button" class="interactPost"> Bookmark </button>
-        </div>
-        <div class="pagination">
-          <a href="#" onclick="pageLeft(0)">&laquo;</a>
-          <a href="#" style="float: right;" onclick="pageRight(1)">&raquo;</a>
-        </div>
-      </center>
-    </div>
+      <div class="container">
+        <center>
+          <div class="post">
+            <div onclick="redirectToPost(0)" class="clickPost" id="p0">
+              <h1 class="title"></h1>
+              <p class="desc"></p>
+            </div>
+            <button onclick="location.href='test.html'" type="button" class="interactPost"> Like </button>
+            <button onclick="location.href='test.html'" type="button" class="interactPost"> Comment </button>
+            <button onclick="addtoBookmark()" type="button" class="interactPost"> Bookmark </button>
+          </div>
+          <br> <div class="post">
+            <div onclick="redirectToPost(1)" class="clickPost" id="p1">
+              <h1 class="title"></h1>
+              <p class="desc"></p>
+            </div>
+            <button onclick="location.href='test.html'" type="button" class="interactPost"> Like </button>
+            <button onclick="location.href='test.html'" type="button" class="interactPost"> Comment </button>
+            <button onclick="addtoBookmark()" type="button" class="interactPost"> Bookmark </button>
+          </div>
+          <br> <div class="post">
+            <div onclick="redirectToPost(2)" class="clickPost" id="p2">
+              <h1 class="title"></h1>
+              <p class="desc"></p>
+            </div>
+            <button onclick="location.href='test.html'" type="button" class="interactPost"> Like </button>
+            <button onclick="location.href='test.html'" type="button" class="interactPost"> Comment </button>
+            <button onclick="addtoBookmark()" type="button" class="interactPost"> Bookmark </button>
+          </div>
+          <div class="pagination">
+            <button onclick="pageLeft()" type="button">&laquo;</button>
+            <button onclick="pageRight()" type="button" style="float: right;">&raquo;</button>
+          </div>
+        </center>
+      </div>
     <script src="{{ url_for('static', filename='homePage.js') }}"></script>
-    <script src="{{ url_for('static', filename='previous-post.js') }}"></script>
   </body>
 </html>
