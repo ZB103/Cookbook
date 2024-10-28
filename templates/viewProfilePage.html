@@ -29,16 +29,16 @@
     <div class="container">
       <center>
         <div class="post">
-          <div onclick="location.href='destination.html'" class="clickPost"> Post One: Chikn </div>
-          <button onclick="location.href='test.html'" type="button" class="interactPost"> Delete Post </button>
+          <div onclick="redirectToPost(0)" class="clickPost"> Post One: Chikn </div>
+          <button onclick="deletePost()" type="button" class="interactPost"> Delete Post </button>
         </div>
         <br> <div class="post">
-          <div onclick="location.href='destination.html'" class="clickPost"> Post Two: Beff </div>
-          <button onclick="location.href='test.html'" type="button" class="interactPost"> Delete Post </button>
+          <div onclick="redirectToPost(1)" class="clickPost"> Post Two: Beff </div>
+          <button onclick="deletePost()" type="button" class="interactPost"> Delete Post </button>
         </div>
         <br> <div class="post">
-          <div onclick="location.href='destination.html'" class="clickPost"> Post Three: Donkeh </div>
-          <button onclick="location.href='test.html'" type="button" class="interactPost"> Delete Post </button>
+          <div onclick="redirectToPost(2)" class="clickPost"> Post Three: Donkeh </div>
+          <button onclick="deletePost()" type="button" class="interactPost"> Delete Post </button>
         </div>
         <button class="pagination" onclick="pageOver(0)"> &laquo; </button>
         <button class="pagination" style="float: right;" onclick="pageLeft(1)"> &raquo; </button>
