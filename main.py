@@ -110,11 +110,15 @@ def load_3_posts(number):
   sql_cmnd = "SELECT post_path FROM posts ORDER BY postid DESC"
   cursor.execute(sql_cmnd)
   myresult = cursor.fetchall()
-  for i in range(number, 3):
+  start = number*3
+  end = (number*3)+2
+  dict_index = 0
+  for i in range(start, end):
     file_path = myresult[i][0]
     # load post as json from the post's file location
     with open(file_path, mode="r", encoding="utf-8") as read_file:
-      post_dict[i] = json.load(read_file)
+      post_dict[dict_index] = json.load(read_file)
+    dict_index+=1
 
   post_json = json.dumps(post_dict)
   return post_json

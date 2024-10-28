@@ -119,7 +119,7 @@ li a:hover {
     text-align: center;
 }
   
-.pagination a {
+.pagination button {
     background-color: #732C2C;
     color: #F7FFD1;
     border-radius: 8px;
@@ -130,6 +130,6 @@ li a:hover {
     font-family: 'Ubuntu', sans-serif;
 }
 
-.pagination a:hover {
+.pagination button:hover {
     background-color: #ae4444;
 }
