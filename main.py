@@ -54,7 +54,7 @@ def new_account():
       file_preamble = "C:\\Users\\Connor\\Documents\\Cookbook\\Users\\"
       settings_path = file_preamble + username + "\\settings.json"
       log_file_path = file_preamble + username + "\\logfile.json"
-      if request.form["email"] == None:
+      if request.form["email"] == None or request.form["email"] == '':
         sql_cmnd = "INSERT INTO users (username, pass, displayname, settings, `logfile`) VALUES (%s, %s, %s, %s, %s)"
         val = (username, password, username, settings_path, log_file_path)
       else:
