@@ -9,10 +9,9 @@
     <link rel="stylesheet" href="./main.css" type="text/css"/>
     <link rel="stylesheet" href="./homePage.css" type="text/css"/>
     <style> @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap'); </style>
-    <script src="./homePage.js"></script>
   </head>
   <body>
-    <h1> Cookbook - Home </h1>
+    <img src="imgs/newLogo.png" alt="Cookbook's logo" />
     <search class="searchBar">
       <form>
         <input class="searchInput" name="fsrch" id="fsrch" placeholder="Search">
@@ -28,31 +27,33 @@
       </ul> 
       <div onclick="location.href='post-creation.html'" class="createPost"> + </div>
     </div>
-      <div class="container">
-        <center>
-          <div class="post">
-            <div onclick="location.href='destination.html'" class="clickPost"> Post One: Apples </div>
-            <button onclick="location.href='test.html'" type="button" class="interactPost"> Like </button>
-            <button onclick="location.href='test.html'" type="button" class="interactPost"> Comment </button>
-            <button onclick="location.href='test.html'" type="button" class="interactPost"> Bookmark </button>
-          </div>
-          <br> <div class="post">
-            <div onclick="location.href='destination.html'" class="clickPost"> Post Two: Bananas </div>
-            <button onclick="location.href='test.html'" type="button" class="interactPost"> Like </button>
-            <button onclick="location.href='test.html'" type="button" class="interactPost"> Comment </button>
-            <button onclick="location.href='test.html'" type="button" class="interactPost"> Bookmark </button>
-          </div>
-          <br> <div class="post">
-            <div onclick="location.href='destination.html'" class="clickPost"> Post Three: Canteloupe </div>
-            <button onclick="location.href='test.html'" type="button" class="interactPost"> Like </button>
-            <button onclick="location.href='test.html'" type="button" class="interactPost"> Comment </button>
-            <button onclick="location.href='test.html'" type="button" class="interactPost"> Bookmark </button>
-          </div>
-          <div class="pagination">
-            <a href="#">&laquo;</a>
-            <a href="#" style="float: right;">&raquo;</a>
-          </div>
-        </center>
-      </div>
+    <div class="container">
+      <center>
+        <div class="post">
+          <div onclick="redirectToPost(0)" class="clickPost"> Post One: Apples </div>
+          <button onclick="location.href='test.html'" type="button" class="interactPost"> Like </button>
+          <button onclick="location.href='test.html'" type="button" class="interactPost"> Comment </button>
+          <button onclick="addtoBookmark()" type="button" class="interactPost"> Bookmark </button>
+        </div>
+        <br> <div class="post">
+          <div onclick="redirectToPost(1)" class="clickPost"> Post Two: Bananas </div>
+          <button onclick="location.href='test.html'" type="button" class="interactPost"> Like </button>
+          <button onclick="location.href='test.html'" type="button" class="interactPost"> Comment </button>
+          <button onclick="addtoBookmark()" type="button" class="interactPost"> Bookmark </button>
+        </div>
+        <br> <div class="post">
+          <div onclick="redirectToPost(2)" class="clickPost"> Post Three: Canteloupe </div>
+          <button onclick="location.href='test.html'" type="button" class="interactPost"> Like </button>
+          <button onclick="location.href='test.html'" type="button" class="interactPost"> Comment </button>
+          <button onclick="addtoBookmark()" type="button" class="interactPost"> Bookmark </button>
+        </div>
+        <div class="pagination">
+          <a href="#">&laquo;</a>
+          <a href="#" style="float: right;">&raquo;</a>
+        </div>
+      </center>
+    </div>
+    <script src="./homePage.js"></script>
+    <script src="./previous-post.js"></script>
   </body>
 </html>

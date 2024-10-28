@@ -1,3 +1,9 @@
+img {
+    width: 200px;
+    padding: 0;
+    margin: 0;
+}
+
 .searchBar {
     padding-left: 80px;
     height: 40px;
