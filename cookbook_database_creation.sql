@@ -13,6 +13,9 @@ email varchar(30) unique, 							-- create email var, can be null (optional) and
 displayname varchar(30), 							-- create displayname var, cant be null (optional) and is not unique 
 settings varchar(100) not null, -- unique, commented out until needed
 `logfile` varchar(100) not null, -- unique, commented out until needed
+ followers VARCHAR(100) NOT NULL default 0,
+ `following` VARCHAR(100) NOT NULL default 0,
+ bookmarks VARCHAR(100) NOT NULL default 'empty'
  -- ## consider creating a function or trigger to populate field with the corresponding username at default 
 
 PRIMARY KEY (userid) ); 								-- sets userid as the primary key for the tables
