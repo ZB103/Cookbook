@@ -193,6 +193,47 @@ delimiter ;
 -- call getTitle(1, @post_title); 
 -- select @post_title;
 
+# get postpath
+delimiter //
+create procedure getPostPath(in post_id int, out postPath varchar(500))
+begin
+	select post_path into postPath
+    from posts
+    where postid = post_id;
+end //
+delimiter ;
+
+-- call getPostPath(100, @postPath);
+-- select @postPath; 
+
+# get post image 
+delimiter // 
+create procedure getPostImage(in post_id int, out postImage varchar(500))
+begin
+	select post_image into postImage
+    from posts
+    where postid = post_id;
+end // 
+delimiter ;
+
+-- call getPostImage(100, @postImage);
+-- select @postImage; 
+
+
+# get post tags JSON 
+delimiter //
+create procedure getPostTags(in post_id int, out post_tags JSON)
+begin 
+	select tags into post_tags
+    from posts
+    where postid = post_id;
+end //
+delimiter ; 
+
+-- call getPostTags(100, @post_tags);
+-- select @post_tags; 
+
+
 
 
 
