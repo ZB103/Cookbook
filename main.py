@@ -69,6 +69,11 @@ def new_account():
   else:
     return render_template("newAccountPage.html")
 
+@app.route("/logout")
+def logout():
+  session.clear()
+  return redirect(url_for("login"))
+
 @app.route("/")
 @app.route("/home")
 def home():
