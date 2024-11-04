@@ -9,11 +9,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" type="text/css" />
     <link rel="stylesheet" href="{{ url_for('static', filename='viewProfilePage.css') }}" type="text/css" />
   </head>
-  <body>
-    <center>
-      <hr />
-      <hr />
-    </center>
+  <body onload="runStartFunctions()">
     <div class="navbar">
       <ul> 
         <li><a href="/home"> Return Home </a></li>
@@ -24,25 +20,27 @@
       </ul> 
     </div>
     <img src="{{ url_for('static', filename='imgs/test-pfp.png') }}" alt="User's profile picture" />
-    <a class="userName">[USERNAME] </a>
+    <a id="username" class="userName"></a>
+    <script src="{{ url_for('static', filename='viewProfilePage.js') }}"></script>
     <!--dummy posts-->
     <div class="container">
       <center>
         <div class="post">
-          <div onclick="redirectToPost(0)" class="clickPost"> Post One: Chikn </div>
+          <div id="post1" onclick="redirectToPost(0)" class="clickPost"></div>
           <button onclick="deletePost()" type="button" class="interactPost"> Delete Post </button>
         </div>
         <br> <div class="post">
-          <div onclick="redirectToPost(1)" class="clickPost"> Post Two: Beff </div>
+          <div id="post2" onclick="redirectToPost(1)" class="clickPost"></div>
           <button onclick="deletePost()" type="button" class="interactPost"> Delete Post </button>
         </div>
         <br> <div class="post">
-          <div onclick="redirectToPost(2)" class="clickPost"> Post Three: Donkeh </div>
+          <div id="post3" onclick="redirectToPost(2)" class="clickPost"></div>
           <button onclick="deletePost()" type="button" class="interactPost"> Delete Post </button>
         </div>
         <button class="pagination" onclick="pageOver(0)"> &laquo; </button>
         <button class="pagination" style="float: right;" onclick="pageLeft(1)"> &raquo; </button>
         <script src="{{ url_for('static', filename='previous-post.js') }}"></script>
+        <script src="{{ url_for('static', filename='viewProfilePage.js') }}"></script>
       </center>
     </div>
   </body>
