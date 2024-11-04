@@ -9,9 +9,9 @@ READS SQL DATA
 begin 
 	declare username varchar(30);
 	select users.username into username
-    from users 
-    where userid = id;
-    return username;
+    	from users 
+    	where userid = id;
+    	return username;
 end $$
 delimiter ; 
 
@@ -25,8 +25,8 @@ create procedure getId(func_user_name varchar(30), out user_id int)
 begin 
 	set user_id = 0;
 	select users.userid into user_id
-    from users
-    where users.username = func_user_name;
+    	from users
+    	where users.username = func_user_name;
 end $$ 
 delimiter ; 
 
@@ -51,8 +51,8 @@ delimiter $$
 create procedure getSettings(in id int, out user_settings varchar(100))
 begin
 	select settings into user_settings
-    from users
-    where userid = id;
+    	from users
+    	where userid = id;
 end $$
 delimiter ;
 
@@ -65,8 +65,8 @@ delimiter $$
 create procedure getLogfile(in id int, out user_logfile varchar(100))
 begin
 	select `logfile` into user_logfile
-    from users
-    where userid = id;
+    	from users
+    	where userid = id;
 end $$
 delimiter ;
 
@@ -79,8 +79,8 @@ delimiter $$
 create procedure getFollowers(in id int, out user_followers varchar(100))
 begin
 	select followers into user_followers
-    from users
-    where userid = id;
+    	from users
+    	where userid = id;
 end $$
 delimiter ;
 
@@ -92,8 +92,8 @@ delimiter $$
 create procedure getFollowing(in id int, out user_following varchar(100))
 begin
 	select `following` into user_following
-    from users
-    where userid = id;
+    	from users
+    	where userid = id;
 end $$
 delimiter ;
 
@@ -105,8 +105,8 @@ delimiter $$
 create procedure getBookmarks(in id int, out user_bookmarks varchar(100))
 begin
 	select bookmarks into user_bookmarks
-    from users
-    where userid = id;
+    	from users
+    	where userid = id;
 end $$
 delimiter ;
 
@@ -118,12 +118,12 @@ delimiter //
 create procedure setUser(in id int, in new_username varchar(30), out updated_username varchar(30))
 begin
 	update users
-    set username = new_username
-    where userid = id;
+    	set username = new_username
+    	where userid = id;
     
-    select username into updated_username
-    from users 
-    where userid = id;
+	select username into updated_username
+    	from users 
+    	where userid = id;
 end //
 delimiter ;
 
@@ -135,12 +135,12 @@ delimiter //
 create procedure setEmail(in id int, in new_email varchar(30), out updated_email varchar(30))
 begin
 	update users
-    set email = new_email
-    where userid = id;
-    
-    select email into updated_email
-    from users 
-    where userid = id;
+	set email = new_email
+	where userid = id;
+
+    	select email into updated_email
+    	from users 
+    	where userid = id;
 end //
 delimiter ;
 
@@ -172,8 +172,8 @@ delimiter $$
 create procedure getCreator(in post_id int, out post_creator varchar(30))
 begin
 	select creator into post_creator
-    from posts
-    where postid = post_id;
+	from posts
+	where postid = post_id;
 end $$
 delimiter ;
 
@@ -185,8 +185,8 @@ delimiter $$
 create procedure getTitle(in post_id int, out post_title varchar(30))
 begin
 	select title into post_title
-    from posts
-    where postid = post_id;
+	from posts
+	where postid = post_id;
 end $$
 delimiter ;
 
@@ -198,8 +198,8 @@ delimiter //
 create procedure getPostPath(in post_id int, out postPath varchar(500))
 begin
 	select post_path into postPath
-    from posts
-    where postid = post_id;
+	from posts
+	where postid = post_id;
 end //
 delimiter ;
 
@@ -211,8 +211,8 @@ delimiter //
 create procedure getPostImage(in post_id int, out postImage varchar(500))
 begin
 	select post_image into postImage
-    from posts
-    where postid = post_id;
+	from posts
+	where postid = post_id;
 end // 
 delimiter ;
 
@@ -225,13 +225,40 @@ delimiter //
 create procedure getPostTags(in post_id int, out post_tags JSON)
 begin 
 	select tags into post_tags
-    from posts
-    where postid = post_id;
+	from posts 
+	where postid = post_id;
 end //
 delimiter ; 
 
 -- call getPostTags(100, @post_tags);
--- select @post_tags; 
+-- select @post_tags;
+
+
+# Archive profile function
+delimiter //
+create procedure archiveUser(in id int)
+begin
+	update users 
+	set pass = "archive_password" 
+	where userid = id;
+end //
+delimiter ; 
+
+# select not needed if value is not returned. 
+-- call archiveUser(1); 
+
+
+# Delete profile function
+delimiter //
+create procedure deleteUser(in id int)
+begin
+	update users
+	set username = CONCAT('deleted_user', id)
+	where userid = id;
+end //
+delimiter ;
+
+-- call deleteUser(1);
 
 
 
