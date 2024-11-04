@@ -6,19 +6,17 @@ CREATE SCHEMA `cookbook_database`;
 -- create table
 
 CREATE  TABLE users (
-userid int NOT NULL AUTO_INCREMENT, -- create user id variable that cannot be null and will auto_increment
-username varchar(30) not null unique,  -- create username var, cant be null and is unique
-pass varchar(30) not null,  							-- create password var, cant be null, is not unique
-email varchar(30) unique, 							-- create email var, can be null (optional) and is unique 
-displayname varchar(30), 							-- create displayname var, cant be null (optional) and is not unique 
-settings varchar(100) not null, -- unique, commented out until needed
-`logfile` varchar(100) not null, -- unique, commented out until needed
- followers VARCHAR(100) NOT NULL default 0,
- `following` VARCHAR(100) NOT NULL default 0,
- bookmarks VARCHAR(100) NOT NULL default 'empty'
- -- ## consider creating a function or trigger to populate field with the corresponding username at default 
-
-PRIMARY KEY (userid) ); 								-- sets userid as the primary key for the tables
+ userid int NOT NULL AUTO_INCREMENT PRIMARY KEY, -- create user id variable that cannot be null and will auto_increment and is the primary key
+ username varchar(30) not null unique,  -- create username var, cant be null and is unique
+ pass varchar(30) not null,  							-- create password var, cant be null, is not unique
+ email varchar(30) unique, 							-- create email var, can be null (optional) and is unique 
+ displayname varchar(30), 							-- create displayname var, cant be null (optional) and is not unique 
+ settings varchar(500) not null, -- unique, commented out until needed
+ `logfile` varchar(500) not null, -- unique, commented out until needed
+ followers VARCHAR(500) NOT NULL default 0,
+ `following` VARCHAR(500) NOT NULL default 0,
+ bookmarks VARCHAR(500) NOT NULL default 'empty'
+); 								
 
 -- Example insertion into table
 
@@ -40,10 +38,10 @@ CREATE TABLE posts
 postid int NOT NULL AUTO_INCREMENT PRIMARY KEY,
 post_creator varchar(30) not null, 
 -- ## consider adding a check that post creator has to be in users/usernames or making this column user userid
-
 post_title varchar(30) not null,
 post_path varchar(500) not null unique,
-post_image varchar(500) -- can be null
+post_image varchar(500), -- can be null
+tags JSON
 )
 AUTO_INCREMENT = 100;
 

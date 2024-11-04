@@ -55,11 +55,11 @@ def new_account():
       settings_path = file_preamble + username + "_settings.json"
       log_file_path = file_preamble + username + "_logfile.json"
       if request.form["email"] == None or request.form["email"] == '':
-        sql_cmnd = "INSERT INTO users (username, pass, displayname, settings, `logfile`) VALUES (%s, %s, %s, %s, %s)"
+        sql_cmnd = "INSERT INTO users (username, pass, settings, `logfile`) VALUES (%s, %s, %s, %s)"
         val = (username, password, username, settings_path, log_file_path)
       else:
         email = request.form["email"]
-        sql_cmnd = "INSERT INTO users (username, pass, email, displayname, settings, `logfile`) VALUES (%s, %s, %s, %s, %s, %s)"
+        sql_cmnd = "INSERT INTO users (username, pass, email, settings, `logfile`) VALUES (%s, %s, %s, %s, %s)"
         val = (username, password, email, username, settings_path, log_file_path)
       cursor.execute(sql_cmnd, val)
       mydb.commit()
@@ -68,6 +68,11 @@ def new_account():
       return redirect(url_for("home"))
   else:
     return render_template("newAccountPage.html")
+
+@app.route("/logout")
+def logout():
+  session.clear()
+  return redirect(url_for("login"))
 
 @app.route("/")
 @app.route("/home")
