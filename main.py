@@ -7,7 +7,7 @@ from datetime import timedelta
 mydb = mysql.connector.connect(
   host="localhost",
   user="root",
-  password="SQLroot",
+  password="12345678",
   database="cookbook_database"
 )
 cursor = mydb.cursor(buffered=True)
@@ -51,9 +51,9 @@ def new_account():
       return redirect(url_for("new_account"))
     else:
       # add user to database
-      file_preamble = "C:\\Users\\Connor\\Documents\\Cookbook\\Users\\"
-      settings_path = file_preamble + username + "\\settings.json"
-      log_file_path = file_preamble + username + "\\logfile.json"
+      file_preamble = "C:\\Users\\zbake\\Documents\\School\\2024-25\\CSC 403\\Cookbook\\Users\\"
+      settings_path = file_preamble + username + "_settings.json"
+      log_file_path = file_preamble + username + "_logfile.json"
       if request.form["email"] == None or request.form["email"] == '':
         sql_cmnd = "INSERT INTO users (username, pass, displayname, settings, `logfile`) VALUES (%s, %s, %s, %s, %s)"
         val = (username, password, username, settings_path, log_file_path)
@@ -85,9 +85,9 @@ def create_post():
     # turn the form into a dictionary
     post_dict = post_to_dict(request.form, username)
     # generate new file location
-    file_preamble = "C:\\Users\\Connor\\Documents\\Cookbook\\Posts\\"
+    file_preamble = "C:\\Users\\zbake\\Documents\\School\\2024-25\\CSC 403\\Cookbook\\Posts\\"
     post_id = generate_post_id()
-    file_path = file_preamble + username + "\\" + str(post_id) + ".json"
+    file_path = file_preamble + username + "_" + str(post_id) + ".json"
     # add post id to post dictionary
     post_dict["id"] = post_id
     # save post as json at that file location

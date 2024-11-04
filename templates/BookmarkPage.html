@@ -14,7 +14,7 @@
       }
     </style>
   </head>
-  <body>
+  <body onload="getBookmarks()">
     <center>
       <!--Title-->
       <h1>My Bookmarks</h1>
@@ -42,20 +42,21 @@
     <div class="container">
       <center>
         <div class="post">
-          <div onclick="redirectToPost(0)" class="clickPost"> Post One: Hi Ron </div>
+          <div id="post1" onclick="redirectToPost(0)" class="clickPost"></div>
           <button onclick="removeFromBookmark()" type="button" class="interactPost"> Remove Bookmark </button>
         </div>
         <br> <div class="post">
-          <div onclick="redirectToPost(1)" class="clickPost"> Post Two: Hey Billy </div>
+          <div id="post2" onclick="redirectToPost(1)" class="clickPost"></div>
           <button onclick="removeFromBookmark()" type="button" class="interactPost"> Remove Bookmark </button>
         </div>
         <br> <div class="post">
-          <div onclick="redirectToPost(2)" class="clickPost"> Post Three: That Hurt </div>
+          <div id="post3" onclick="redirectToPost(2)" class="clickPost"></div>
           <button onclick="removeFromBookmark()" type="button" class="interactPost"> Remove Bookmark </button>
         </div>
         <button class="pagination" onclick="pageOver(0)"> &laquo; </button>
         <button class="pagination" style="float: right;" onclick="pageLeft(1)"> &raquo; </button>
-        <script src="./previous-post.js"></script>
+        <script src="{{ url_for('static', filename='previous-post.js') }}"></script>
+        <script src="{{ url_for('static', filename='bookmarkPage.js') }}"></script>
       </center>
     </div>
 </html>
