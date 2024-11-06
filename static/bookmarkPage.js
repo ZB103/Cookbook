@@ -7,6 +7,15 @@ function getBookmarks() {
 
     let p3 = document.getElementById("post3");
     p3.textContent = "Fresh Shift";
+
+    let p4 = document.getElementById("post4");
+    p4.textContent = "Fresh Fish";
+
+    let p5 = document.getElementById("post5");
+    p5.textContent = "Fresh Ifsh";
+
+    let p6 = document.getElementById("post6");
+    p6.textContent = "Fresh Shift";
 }
 
 function removeFromBookmark() {
