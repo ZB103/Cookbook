@@ -9,9 +9,9 @@ PARENT_DIR = f"C:\\Users\\{HOST_NAME}\\Documents\\Cookbook_Files\\"
 
 # connect to database
 mydb = mysql.connector.connect(
-  host="localhost",
   user="root",
   password="SQLroot",
+  host="localhost",
   database="cookbook_database"
 )
 cursor = mydb.cursor(buffered=True)
@@ -145,6 +145,10 @@ def profile_settings():
 @app.route("/BookmarkPage")
 def bookmark_page():
   return render_template("BookmarkPage.html")
+
+@app.route("/viewFollowingFollowersPage")
+def followers_page():
+  return render_template("viewFollowingFollowersPage.html")
 
 # helper functions
 def getPassword(username):
