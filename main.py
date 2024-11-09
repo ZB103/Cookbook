@@ -1,7 +1,11 @@
 from flask import Flask, redirect, url_for, render_template, request, session, flash
 import mysql.connector
 import json
+import os
 from datetime import timedelta
+
+HOST_NAME = os.getlogin()
+PARENT_DIR = f"C:\\Users\\{HOST_NAME}\\Documents\\Cookbook_Files\\"
 
 # connect to database
 mydb = mysql.connector.connect(
@@ -51,9 +55,11 @@ def new_account():
       return redirect(url_for("new_account"))
     else:
       # add user to database
-      file_preamble = "C:\\Users\\Connor\\Documents\\Cookbook\\Users\\"
-      settings_path = file_preamble + username + "\\settings.json"
-      log_file_path = file_preamble + username + "\\logfile.json"
+      generate_new_user_folder(username)
+      settings_path = PARENT_DIR + "Posts\\" + username + "\\settings.json"
+      log_file_path = PARENT_DIR + "Posts\\" + username + "\\logfile.json"
+      log_file_path = PARENT_DIR + "Posts\\" + username + "\\bookmarks.json"
+      log_file_path = PARENT_DIR + "Posts\\" + username + "\\likes.json"
       if request.form["email"] == None or request.form["email"] == '':
         sql_cmnd = "INSERT INTO users (username, pass, settings, `logfile`) VALUES (%s, %s, %s, %s)"
         val = (username, password, username, settings_path, log_file_path)
@@ -182,5 +188,39 @@ def generate_post_id():
   else:
     return (myresult[0] + 1)
 
+def generate_new_folders():
+  # thanks to https://www.geeksforgeeks.org/create-a-directory-in-python/ for help with this function
+  try:
+    # create new posts path
+    posts_path = PARENT_DIR + "Posts"
+    os.makedirs(posts_path)
+    print(f"Directory '{posts_path}' created successfully.")
+  except FileExistsError:
+    print(f"Directory '{posts_path}' already exists.")
+  except Exception as e:
+    print(f"An error occurred: {e}")
+  try:
+    # create new users path
+    users_path = PARENT_DIR + "Users"
+    os.mkdir(users_path)
+    print(f"Directory '{users_path}' created successfully.")
+  except FileExistsError:
+    print(f"Directory '{users_path}' already exists.")
+  except Exception as e:
+    print(f"An error occurred: {e}")
+
+def generate_new_user_folder(username):
+  # thanks to https://www.geeksforgeeks.org/create-a-directory-in-python/ for help with this function
+  try:
+    # create new posts path
+    new_user_path = PARENT_DIR + "Posts\\" + username
+    os.mkdir(new_user_path)
+    print(f"Directory '{new_user_path}' created successfully.")
+  except FileExistsError:
+    print(f"Directory '{new_user_path}' already exists.")
+  except Exception as e:
+    print(f"An error occurred: {e}")
+
 if __name__ == "__main__":
+  generate_new_folders()
   app.run(debug=True)
