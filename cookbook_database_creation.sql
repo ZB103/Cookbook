@@ -41,7 +41,8 @@ post_creator varchar(30) not null,
 post_title varchar(30) not null,
 post_path varchar(500) not null unique,
 post_image varchar(500), -- can be null
-tags JSON
+tags JSON,
+likes int default 0
 )
 AUTO_INCREMENT = 100;
 
