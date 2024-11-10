@@ -1,0 +1,73 @@
+body {
+    margin: 0;
+}
+
+.imgArea {
+    padding: 0;
+    margin: 0;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #435C3E;
+    overflow: hidden;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 3;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+}
+
+.profileImage {
+    width: 90px;
+    height: 90px;
+    border-radius: 50px;
+    float: right;
+}
+
+.searchBar {
+    height: 40px;
+    padding-right: 880px;
+}
+
+.searchInput {
+    width: 400px; 
+    height: 30px;
+    background-color: #f7fcdf;
+    border-style: solid; 
+    border-color: #435C3E;
+    border-radius: 20px; 
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.followListArea {
+    border-style: solid;
+    border-radius: 8px;
+    border-width: 1px;
+    border-color: #435C3E;
+    width: 800px;
+    height: 600px;
+    position: absolute;
+    top: 110px;
+    left: 25%;
+    z-index: 1;
+}
+
+.tablinks {
+    height: 50px; 
+    width: 100px;
+    background-color: #732C2C;
+    border-style: none;
+    color: #F7FFD1;
+    font-family: "Ubuntu", sans-serif;
+    font-size: 20px;
+    text-align: center;
+    border-radius: 8px;
+}

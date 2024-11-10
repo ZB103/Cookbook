@@ -1,29 +1,62 @@
+body {
+    margin: 0;
+}
+
+.imgArea {
+    padding: 0;
+    margin: 0;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #435C3E;
+    overflow: hidden;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 3;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+}
+
+.profileImage {
+    width: 90px;
+    height: 90px;
+    border-radius: 50px;
+    float: right;
+}
+
 .searchBar {
-    padding-left: 80px;
     height: 40px;
+    padding-right: 880px;
 }
 
 .searchInput {
-    width: 900px; 
+    width: 400px; 
     height: 30px;
     background-color: #f7fcdf;
     border-style: solid; 
     border-color: #435C3E;
-    border-radius: 10px;
-    margin-left: 270px; 
+    border-radius: 20px; 
     margin-bottom: 20px;
     font-size: 20px;
     font-family: 'Ubuntu', sans-serif;
 }
 
 .navbar {
-    float: left; 
+    float: left;
     border-style: solid; 
     border-color: #435C3E;
     border-radius: 8px;
-    height: 374px; 
-    width: 129px;
-    margin-top: 10px;
+    width: auto;
+    margin-top: 120px;
+    position: fixed;
+    left: 0;
+    z-index: 2;
 }
 
 ul {
@@ -41,6 +74,7 @@ li a {
     width: 129px; 
     font-size: 25px;
     text-align: center;
+    padding-top: 20px;
     text-decoration: none;
     font-family: "Ubuntu", sans-serif;
 }
@@ -50,44 +84,48 @@ li a:hover {
 }
 
 .createPost {
-    height: 80px; 
-    width: 80px;
-    margin-left: 10px;
-    margin-top: 100px; 
+    width: 100px;
+    height: 100px;
+    line-height: 90px;
+    margin: 0;
+    padding: 0;
     font-size: 90px; 
     text-align: center;
-    padding-bottom: 32px;
-    padding-left: 9px;
-    padding-right: 8px;
     background-color: #F7FFD1;
     border-style: none;
+    border-radius: 50px;
     color: #435C3E;
-
+    position: fixed;
+    top: 630px;
+    left: 20px;
+    display: block;
 }
 
 .createPost:hover {
     background-color: #e0eab8;
-    border-radius: 10000px;
+    border-radius: 50px;
 }
 
 .container {
-    padding-top: 20px; 
     border-style: solid;
     border-width: 1px;
     border-color: #435C3E;
+    background-color: #e0eab8;
     border-radius: 8px;
-    height: 580px; 
+    height: auto; 
     width: 1300px; 
-    margin-left: 165px;
-    margin-top: 10px;
+    margin-left: 150px;
+    position: absolute;
+    top: 120px;
+    left: 20px;
+    z-index: 1;
 }
 
 .post {
     height: 150px; 
-    width: 1050px; 
-    border-style: solid;
+    width: 1050px;
+    border-style: none;
     border-width: 1px; 
-    border-color: #435C3E;
     border-radius: 8px;
 }
 
@@ -110,26 +148,5 @@ li a:hover {
 }
 
 .interactPost:hover {
-    background-color: #ae4444;
-}
-
-.pagination {
-    font-size: 40px;
-    margin-top: 20px;
-    text-align: center;
-}
-  
-.pagination button {
-    background-color: #732C2C;
-    color: #F7FFD1;
-    border-radius: 8px;
-    border-style: none;
-    float: left;
-    padding: 6px 50px;
-    text-decoration: none;
-    font-family: 'Ubuntu', sans-serif;
-}
-
-.pagination button:hover {
     background-color: #ae4444;
 }
