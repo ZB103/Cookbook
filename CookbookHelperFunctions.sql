@@ -258,7 +258,39 @@ end //
 delimiter ; 
 
 -- call getPostTags(100, @post_tags);
--- select @post_tags; 
+-- select @post_tags;
+
+# get likes function
+delimiter //
+create procedure getLikes(in post_id int, out post_likes int)
+begin
+	select likes into post_likes
+    	from posts
+    	where postid = post_id;
+end //
+delimiter ;
+
+-- call getLikes(100, @post_likes)
+-- select @post_likes 
+
+# set likes function
+delimiter //
+create procedure setLikes(in post_id int, in post_likes int, out new_likes int)
+begin
+	update posts
+    	set likes = post_likes
+    	where postid = post_id;
+    
+    	select likes into post_likes
+    	from posts
+    	where postid = post_id;
+end //
+delimiter ; 
+
+# example running
+-- call getLikes(100, @post_likes);
+-- call setLikes(100, @post_likes, @new_likes);
+-- select * from posts where likes = @new_likes; 
 
 
 # Archive profile function
