@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Cookbook - Follows </title>
+    <meta name="description" content="description"/>
+    <meta name="author" content="author" />
+    <meta name="keywords" content="keywords" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" type="text/css"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='followingFollowersPage.css') }}" type="text/css"/>
+  </head>
+  <body>
+    <header class="imgArea">
+      <a href="/home">
+        <img class="logo" src="{{ url_for('static', filename='imgs/newLogo.png') }}" alt="Cookbook's logo"/>
+      </a>
+      <search class="searchBar">
+        <form>
+          <input class="searchInput" name="fsrch" id="fsrch" placeholder="Search">
+        </form>
+      </search>
+      <a href="/viewProfilePage">
+        <img class="profileImage" src="{{ url_for('static', filename='imgs/test-pfp.png') }}" alt="User Profile Image"/>
+      </a>
+    </header>
+    <div class="followListArea"> 
+      <div class="tab"> 
+        <button class="tablinks" onclick="showFollowers()" style="float: left;"> Followers </button>
+        <button class="tablinks" onclick="showFollowing()" style="float: left;"> Following </button>
+      </div>
+    </div>
+  </body>
+</html>

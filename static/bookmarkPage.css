@@ -1,65 +1,62 @@
-hr {
-    width: 1480px;
+body {
+    margin: 0;
 }
 
-h1 {
-    font-size: 50px;
+.imgArea {
+    padding: 0;
+    margin: 0;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #435C3E;
+    overflow: hidden;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 3;
 }
 
-h2 {
-    padding: 0px;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    font-size: 25px;
-    font-weight: normal;
+.logo {
+    width: 100px;
+    height: 100px;
 }
 
-img {
-    width: 80px;
-    height: auto;
+.profileImage {
+    width: 90px;
+    height: 90px;
     border-radius: 50px;
-    border-color: black;
-    border-style: solid;
-}
-
-.returnHome {
-    background-color: #732C2C;
-    color: #F7FFD1;
-    border-radius: 8px;
-    width: 130px;
-    height: 30px;
-    font-size: 17px;
-}
-
-.returnHome:hover {
-    background-color: #ae4444;
+    float: right;
 }
 
 .searchBar {
-    padding-left: 80px;
     height: 40px;
+    padding-right: 880px;
 }
 
 .searchInput {
-    width: 900px; 
+    width: 400px; 
     height: 30px;
     background-color: #f7fcdf;
     border-style: solid; 
     border-color: #435C3E;
-    border-radius: 10px;
-    margin-left: 270px; 
+    border-radius: 20px; 
     margin-bottom: 20px;
     font-size: 20px;
     font-family: 'Ubuntu', sans-serif;
 }
 
 .navbar {
-    float: left; 
+    float: left;
     border-style: solid; 
     border-color: #435C3E;
     border-radius: 8px;
-    height: 374px; 
     width: 129px;
+    margin-top: 120px;
+    position: fixed;
+    left: 0;
+    z-index: 2;
 }
 
 ul {
@@ -77,6 +74,7 @@ li a {
     width: 129px; 
     font-size: 25px;
     text-align: center;
+    padding-top: 20px;
     text-decoration: none;
     font-family: "Ubuntu", sans-serif;
 }
@@ -86,23 +84,25 @@ li a:hover {
 }
 
 .container {
-    padding-top: 20px; 
     border-style: solid;
     border-width: 1px;
     border-color: #435C3E;
+    background-color: #e0eab8;
     border-radius: 8px;
-    height: 580px; 
+    height: auto; 
     width: 1300px; 
-    margin-left: 165px;
-    margin-top: 10px;
+    margin-left: 150px;
+    position: absolute;
+    top: 120px;
+    left: 20px;
+    z-index: 1;
 }
 
 .post {
     height: 150px; 
-    width: 1050px; 
-    border-style: solid;
+    width: 1050px;
+    border-style: none;
     border-width: 1px; 
-    border-color: #435C3E;
     border-radius: 8px;
 }
 
@@ -114,44 +114,16 @@ li a:hover {
 
 .interactPost {
     height: 50px; 
-    width: 300px;
+    width: 347.5px;
     background-color: #732C2C;
     border-style: none;
     color: #F7FFD1;
-    font-family: "Ubuntu", sans-serif;
+    font-family: 'Ubuntu', sans-serif;
     font-size: 30px;
     text-align: center;
     border-radius: 8px;
 }
 
 .interactPost:hover {
-    background-color: #ae4444;
-}
-
-.navbar {
-    float: left; 
-    border-style: solid; 
-    border-color: #435C3E;
-    border-radius: 8px;
-    height: 374px; 
-    width: 129px;
-    margin-top: 200px;
-}
-
-.pagination {
-    font-size: 40px;
-    margin-top: 20px;
-    text-align: center;
-    background-color: #732C2C;
-    color: #F7FFD1;
-    border-radius: 8px;
-    border-style: none;
-    padding: 6px 50px;
-    float: left;
-    text-decoration: none;
-    font-family: 'Ubuntu', sans-serif;
-}
-
-.pagination:hover {
     background-color: #ae4444;
 }

@@ -11,62 +11,63 @@
     <style> @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap'); </style>
   </head>
   <body onload="getPosts()">
-    <h1> Cookbook - Home </h1>
-    <search class="searchBar">
-      <form>
-        <input class="searchInput" name="fsrch" id="fsrch" placeholder="Search">
-      </form>
-    </search>
+    <header class="imgArea">
+      <a href="/home">
+        <img class="logo" src="{{ url_for('static', filename='imgs/newLogo.png') }}" alt="Cookbook's logo"/>
+      </a>
+      <search class="searchBar">
+        <form>
+          <input class="searchInput" name="fsrch" id="fsrch" placeholder="Search">
+        </form>
+      </search>
+      <a href="/viewProfilePage">
+        <img class="profileImage" src="{{ url_for('static', filename='imgs/test-pfp.png') }}" alt="User Profile Image"/>
+      </a>
+    </header>
     <div class="navbar">
       <ul> 
         <li><a href="/viewProfilePage"> View Profile </a></li>
         <li><a href="/ProfileSettings">  Settings </a></li>
         <li><a href="/BookmarkPage"> Bookmarks </a></li>
-        <li><a href="/ProfileSettings"> Following </a></li>
+        <li><a href="/viewFollowingFollowersPage"> Follows </a></li>
         <li><a href="/logout"> Log Out </a></li>
       </ul> 
       <div onclick="location.href='/createPost'" class="createPost"> + </div>
     </div>
-    <p id="test"></p>
-    <button onclick="grabBookmarks()" type="button"> Test </button>
-      <div class="container">
-        <center>
-          <div class="post">
-            <div onclick="redirectToPost(0)" class="clickPost" id="p0">
-              <h1 class="title"></h1>
-              <p class="desc"></p>
-              <p class="hidden" hidden></p>
-            </div>
-            <button onclick="location.href='test.html'" type="button" class="interactPost"> Like </button>
-            <button onclick="location.href='test.html'" type="button" class="interactPost"> Comment </button>
-            <button onclick="bookmarkPost(0)" type="button" class="interactPost bookmarkBttn"> Bookmark </button>
+    <div class="container">
+      <center>
+        <div class="post">
+          <div onclick="redirectToPost(0)" class="clickPost" id="p0">
+            <h1 class="title"></h1>
+            <p class="desc"></p>
+            <p class="hidden" hidden></p>
           </div>
-          <br> <div class="post">
-            <div onclick="redirectToPost(1)" class="clickPost" id="p1">
-              <h1 class="title"></h1>
-              <p class="desc"></p>
-              <p class="hidden" hidden></p>
-            </div>
-            <button onclick="location.href='test.html'" type="button" class="interactPost"> Like </button>
-            <button onclick="location.href='test.html'" type="button" class="interactPost"> Comment </button>
-            <button onclick="bookmarkPost(1)" type="button" class="interactPost bookmarkBttn"> Bookmark </button>
+          <button onclick="location.href='test.html'" type="button" class="interactPost"> Like </button>
+          <button onclick="location.href='test.html'" type="button" class="interactPost"> Comment </button>
+          <button onclick="bookmarkPost(0)" type="button" class="interactPost bookmarkBttn"> Bookmark </button>
+        </div>
+        <br> <div class="post">
+          <div onclick="redirectToPost(1)" class="clickPost" id="p1">
+            <h1 class="title"></h1>
+            <p class="desc"></p>
+            <p class="hidden" hidden></p>
           </div>
-          <br> <div class="post">
-            <div onclick="redirectToPost(2)" class="clickPost" id="p2">
-              <h1 class="title"></h1>
-              <p class="desc"></p>
-              <p class="hidden" hidden></p>
-            </div>
-            <button onclick="location.href='test.html'" type="button" class="interactPost"> Like </button>
-            <button onclick="location.href='test.html'" type="button" class="interactPost"> Comment </button>
-            <button onclick="bookmarkPost(2)" type="button" class="interactPost bookmarkBttn"> Bookmark </button>
+          <button onclick="location.href='test.html'" type="button" class="interactPost"> Like </button>
+          <button onclick="location.href='test.html'" type="button" class="interactPost"> Comment </button>
+          <button onclick="bookmarkPost(1)" type="button" class="interactPost bookmarkBttn"> Bookmark </button>
+        </div>
+        <br> <div class="post">
+          <div onclick="redirectToPost(2)" class="clickPost" id="p2">
+            <h1 class="title"></h1>
+            <p class="desc"></p>
+            <p class="hidden" hidden></p>
           </div>
-          <div class="pagination">
-            <button onclick="pageLeft()" type="button">&laquo;</button>
-            <button onclick="pageRight()" type="button" style="float: right;">&raquo;</button>
-          </div>
-        </center>
-      </div>
+          <button onclick="location.href='test.html'" type="button" class="interactPost"> Like </button>
+          <button onclick="location.href='test.html'" type="button" class="interactPost"> Comment </button>
+          <button onclick="bookmarkPost(2)" type="button" class="interactPost bookmarkBttn"> Bookmark </button>
+        </div>
+      </center>
+    </div>
     <script src="{{ url_for('static', filename='homePage.js') }}"></script>
     <script src="{{ url_for('static', filename='bookmarkPost.js') }}"></script>
   </body>

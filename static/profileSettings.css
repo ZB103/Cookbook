@@ -1,14 +1,46 @@
-.returnHome {
-    background-color: #732C2C;
-    color: #F7FFD1;
-    border-radius: 8px;
-    width: 130px;
-    height: 30px;
-    font-size: 17px;
+body {
+    margin: 0;
 }
 
-.returnHome:hover {
-    background-color: #ae4444;
+.imgArea {
+    padding: 0;
+    margin: 0;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    background-color: #435C3E;
+    overflow: hidden;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 3;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+    position: fixed;
+    top: 5px;
+}
+
+.profileImage {
+    width: 90px;
+    height: 90px;
+    border-radius: 50px;
+    position: fixed;
+    top: 5px;
+    right: 15px;
+}
+
+.settingsArea {
+    width: 100%;
+    height: auto;
+    display: block;
+    text-align: center;
+    position: absolute;
+    top: 100px;
+    z-index: 1;
 }
 
 .saveButton {

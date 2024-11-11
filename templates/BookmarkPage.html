@@ -8,54 +8,59 @@
     <meta name="keywords" content="keywords" />
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" type="text/css" />
     <link rel="stylesheet" href="{{ url_for('static', filename='bookmarkPage.css') }}" type="text/css" />
-    <style type="text/css">
-      .body {
-        width: auto;
-      }
-    </style>
   </head>
-  <body>
-    <center>
-      <!--Title-->
-      <h1>My Bookmarks</h1>
-      <!--Button that goes to home screen-->
-      <a href="/home"><input class="returnHome" type="button" value="< Return Home" /></a>
-      <hr>
-      <hr>
-    </center>
-    <!--search bar-->
-    <search class="searchBar">
-      <form>
-        <input class="searchInput" name="fsrch" id="fsrch" placeholder="Search">
-      </form>
-    </search>
+  <body onload="getBookmarks()">
+    <header class="imgArea">
+      <a href="/home">
+        <img class="logo" src="{{ url_for('static', filename='imgs/newLogo.png') }}" alt="Cookbook's logo"/>
+      </a>
+      <search class="searchBar">
+        <form>
+          <input class="searchInput" name="fsrch" id="fsrch" placeholder="Search">
+        </form>
+      </search>
+      <a href="/viewProfilePage">
+        <img class="profileImage" src="{{ url_for('static', filename='imgs/test-pfp.png') }}" alt="User Profile Image"/>
+      </a>
+    </header>
     <div class="navbar">
       <ul> 
         <li><a href="/viewProfilePage"> View Profile </a></li>
         <li><a href="/ProfileSettings">  Settings </a></li>
         <li><a href="/BookmarkPage"> Bookmarks </a></li>
-        <li><a href="/ProfileSettings"> Following </a></li>
-        <li><a href="/ProfileSettings"> Followers </a></li>
-      </ul>
+        <li><a href="/viewFollowingFollowersPage"> Follows </a></li>
+        <li><a href="/logout"> Log Out </a></li>
+      </ul> 
     </div>
     <!--dummy posts-->
     <div class="container">
       <center>
         <div class="post">
-          <div onclick="redirectToPost(0)" class="clickPost"> Post One: Hi Ron </div>
+          <div id="post1" onclick="redirectToPost(0)" class="clickPost"></div>
           <button onclick="removeFromBookmark()" type="button" class="interactPost"> Remove Bookmark </button>
         </div>
         <br> <div class="post">
-          <div onclick="redirectToPost(1)" class="clickPost"> Post Two: Hey Billy </div>
+          <div id="post2" onclick="redirectToPost(1)" class="clickPost"></div>
           <button onclick="removeFromBookmark()" type="button" class="interactPost"> Remove Bookmark </button>
         </div>
         <br> <div class="post">
-          <div onclick="redirectToPost(2)" class="clickPost"> Post Three: That Hurt </div>
+          <div id="post3" onclick="redirectToPost(2)" class="clickPost"></div>
           <button onclick="removeFromBookmark()" type="button" class="interactPost"> Remove Bookmark </button>
         </div>
-        <button class="pagination" onclick="pageOver(0)"> &laquo; </button>
-        <button class="pagination" style="float: right;" onclick="pageLeft(1)"> &raquo; </button>
-        <script src="./previous-post.js"></script>
+        <br> <div class="post">
+          <div id="post4" onclick="redirectToPost(3)" class="clickPost"></div>
+          <button onclick="removeFromBookmark()" type="button" class="interactPost"> Remove Bookmark </button>
+        </div>
+        <br> <div class="post">
+          <div id="post5" onclick="redirectToPost(4)" class="clickPost"></div>
+          <button onclick="removeFromBookmark()" type="button" class="interactPost"> Remove Bookmark </button>
+        </div>
+        <br> <div class="post">
+          <div id="post6" onclick="redirectToPost(5)" class="clickPost"></div>
+          <button onclick="removeFromBookmark()" type="button" class="interactPost"> Remove Bookmark </button>
+        </div>
+        <script src="{{ url_for('static', filename='previous-post.js') }}"></script>
+        <script src="{{ url_for('static', filename='bookmarkPage.js') }}"></script>
       </center>
     </div>
 </html>

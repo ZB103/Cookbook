@@ -8,22 +8,19 @@
     <meta name="keywords" content="keywords" />
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" type="text/css" />
     <link rel="stylesheet" href="{{ url_for('static', filename='profileSettings.css') }}" type="text/css" />
-    <style type="text/css">
-      .body {
-        width: auto;
-      }
-    </style>
   </head>
   <body>
-    <center>
+    <header class="imgArea">
+      <a href="/home">
+        <img class="logo" src="{{ url_for('static', filename='imgs/newLogo.png') }}" alt="Cookbook's logo"/>
+      </a>
+      <a href="/viewProfilePage">
+        <img class="profileImage" src="{{ url_for('static', filename='imgs/test-pfp.png') }}" alt="User Profile Image"/>
+      </a>
+    </header>
+    <div class="settingsArea">
       <!--Title-->
       <h1>Profile Settings</h1>
-      <!--Button that goes to home screen-->
-      <a href="/home"><input class="returnHome" type="button" value="< Return Home" /></a>
-      <hr />
-      <hr />
-
-      <p></p>
 
       <!--Display Name setting-->
       <big><strong>Display Name: </strong>Placeholder Jones</big>
@@ -151,6 +148,6 @@ Placeholder Bio</textarea
       </p>
       <input class="archiveButton" type="button" value="ARCHIVE ACCOUNT" />
       <input class="deleteButton" type="button" value="DELETE ACCOUNT" />
-    </center>
+    </div>
   </body>
 </html>
