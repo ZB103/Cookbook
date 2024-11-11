@@ -27,34 +27,39 @@
       </ul> 
       <div onclick="location.href='/createPost'" class="createPost"> + </div>
     </div>
+    <p id="test"></p>
+    <button onclick="grabBookmarks()" type="button"> Test </button>
       <div class="container">
         <center>
           <div class="post">
             <div onclick="redirectToPost(0)" class="clickPost" id="p0">
               <h1 class="title"></h1>
               <p class="desc"></p>
+              <p class="hidden" hidden></p>
             </div>
             <button onclick="location.href='test.html'" type="button" class="interactPost"> Like </button>
             <button onclick="location.href='test.html'" type="button" class="interactPost"> Comment </button>
-            <button onclick="addtoBookmark()" type="button" class="interactPost"> Bookmark </button>
+            <button onclick="bookmarkPost(0)" type="button" class="interactPost bookmarkBttn"> Bookmark </button>
           </div>
           <br> <div class="post">
             <div onclick="redirectToPost(1)" class="clickPost" id="p1">
               <h1 class="title"></h1>
               <p class="desc"></p>
+              <p class="hidden" hidden></p>
             </div>
             <button onclick="location.href='test.html'" type="button" class="interactPost"> Like </button>
             <button onclick="location.href='test.html'" type="button" class="interactPost"> Comment </button>
-            <button onclick="addtoBookmark()" type="button" class="interactPost"> Bookmark </button>
+            <button onclick="bookmarkPost(1)" type="button" class="interactPost bookmarkBttn"> Bookmark </button>
           </div>
           <br> <div class="post">
             <div onclick="redirectToPost(2)" class="clickPost" id="p2">
               <h1 class="title"></h1>
               <p class="desc"></p>
+              <p class="hidden" hidden></p>
             </div>
             <button onclick="location.href='test.html'" type="button" class="interactPost"> Like </button>
             <button onclick="location.href='test.html'" type="button" class="interactPost"> Comment </button>
-            <button onclick="addtoBookmark()" type="button" class="interactPost"> Bookmark </button>
+            <button onclick="bookmarkPost(2)" type="button" class="interactPost bookmarkBttn"> Bookmark </button>
           </div>
           <div class="pagination">
             <button onclick="pageLeft()" type="button">&laquo;</button>
@@ -63,5 +68,6 @@
         </center>
       </div>
     <script src="{{ url_for('static', filename='homePage.js') }}"></script>
+    <script src="{{ url_for('static', filename='bookmarkPost.js') }}"></script>
   </body>
 </html>

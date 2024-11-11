@@ -33,6 +33,7 @@ async function getPosts() {
       let postChildren = post.children;
       postChildren[0].textContent = postJson[i]["title"];
       postChildren[1].textContent = postJson[i]["description"];
+      postChildren[2].textContent = postJson[i]["id"];
     }
 
   } catch (error) {
