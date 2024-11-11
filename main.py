@@ -56,17 +56,17 @@ def new_account():
     else:
       # add user to database
       generate_new_user_folder(username)
-      settings_path = PARENT_DIR + "Posts\\" + username + "\\settings.json"
-      log_file_path = PARENT_DIR + "Posts\\" + username + "\\logfile.json"
-      log_file_path = PARENT_DIR + "Posts\\" + username + "\\bookmarks.json"
-      log_file_path = PARENT_DIR + "Posts\\" + username + "\\likes.json"
+      settings_path = PARENT_DIR + "Users\\" + username + "\\settings.json"
+      log_file_path = PARENT_DIR + "Users\\" + username + "\\logfile.json"
+      bookmarks_path = PARENT_DIR + "Users\\" + username + "\\bookmarks.json"
       if request.form["email"] == None or request.form["email"] == '':
-        sql_cmnd = "INSERT INTO users (username, pass, settings, `logfile`) VALUES (%s, %s, %s, %s)"
-        val = (username, password, username, settings_path, log_file_path)
+        sql_cmnd = "INSERT INTO users (username, pass, settings, `logfile`, bookmarks) VALUES (%s, %s, %s, %s, %s)"
+        val = (username, password, settings_path, log_file_path, bookmarks_path)
       else:
         email = request.form["email"]
-        sql_cmnd = "INSERT INTO users (username, pass, email, settings, `logfile`) VALUES (%s, %s, %s, %s, %s)"
-        val = (username, password, email, username, settings_path, log_file_path)
+        print(email)
+        sql_cmnd = "INSERT INTO users (username, pass, email, settings, `logfile`, bookmarks) VALUES (%s, %s, %s, %s, %s, %s)"
+        val = (username, password, email, settings_path, log_file_path, bookmarks_path)
       cursor.execute(sql_cmnd, val)
       mydb.commit()
       # add user to the session
@@ -96,9 +96,8 @@ def create_post():
     # turn the form into a dictionary
     post_dict = post_to_dict(request.form, username)
     # generate new file location
-    file_preamble = "C:\\Users\\Connor\\Documents\\Cookbook\\Posts\\"
     post_id = generate_post_id()
-    file_path = file_preamble + username + "\\" + str(post_id) + ".json"
+    file_path = PARENT_DIR + "Posts\\" + str(post_id) + ".json"
     # add post id to post dictionary
     post_dict["id"] = post_id
     # save post as json at that file location
@@ -145,6 +144,79 @@ def profile_settings():
 @app.route("/BookmarkPage")
 def bookmark_page():
   return render_template("BookmarkPage.html")
+
+@app.route("/grabBookmarks")
+def grab_bookmarks():
+  username = session["user"]
+  # TODO: replace this with SQL request
+  path = PARENT_DIR + "Users\\" + username + "\\bookmarks.json"
+  # if the user hasn't bookmarked anything
+  if os.path.isfile(path) == False:
+    empty_json = {"bookmarks" : []}
+    return json.dumps(empty_json)
+  else:
+    # open the list of the user's bookmarks
+    with open(path, mode="r", encoding="utf-8") as read_bookmark_list:
+      post_id_json = json.load(read_bookmark_list)
+    post_ids = post_id_json["bookmarks"]
+    # if the user doesn't have anything bookmarked
+    if not post_ids:
+      empty_json = {"bookmarks" : []}
+      return json.dumps(empty_json)
+    # for each post id in the list, grab the path to that post, load it, and insertit into the dictonary that we're going to return
+    posts_dict = {}
+    for id in post_ids:
+      # TODO: replace this with function call
+      sql_cmnd = f"SELECT post_path FROM posts WHERE postid = {id}"
+      cursor.execute(sql_cmnd)
+      post_path = cursor.fetchone()
+      # load post as json from the post's file location
+      with open(post_path[0], mode="r", encoding="utf-8") as read_post_json:
+        posts_dict[id] = json.load(read_post_json)
+    return json.dumps(posts_dict)
+
+
+@app.route("/bookmarkPost<id>")
+def save_bookmark(id):
+  username = session["user"]
+  # if this is the first post the user is bookmarking, then create a file to store their bookmarks in
+  # TODO: replace this with SQL query
+  path = PARENT_DIR + "Users\\" + username + "\\bookmarks.json"
+  if os.path.isfile(path) == False:
+    empty_json = {"bookmarks" : []}
+    with open(path, mode="w", encoding="utf-8") as write_file:
+      json.dump(empty_json, write_file)
+
+  # load the user's bookmark file
+  bookmark_dict = None
+  with open(path, mode="r", encoding="utf-8") as read_file:
+    bookmark_dict = json.load(read_file)
+
+  # add the post to the bookmarks
+  bookmark_dict["bookmarks"].append(id)
+
+  # save the json file
+  with open(path, mode="w", encoding="utf-8") as write_file:
+    json.dump(bookmark_dict, write_file)
+  return "Post bookmarked!"
+
+@app.route("/unbookmarkPost<id>")
+def del_bookmark(id):
+  username = session["user"]
+  # TODO: replace this with SQL query
+  path = PARENT_DIR + "Users\\" + username + "\\bookmarks.json"
+  # load the user's bookmark file
+  bookmark_dict = None
+  with open(path, mode="r", encoding="utf-8") as read_file:
+    bookmark_dict = json.load(read_file)
+
+  # remove the post from the bookmarks
+  bookmark_dict["bookmarks"].remove(id)
+
+  # save the json file
+  with open(path, mode="w", encoding="utf-8") as write_file:
+    json.dump(bookmark_dict, write_file)
+  return "Post unbookmarked!"
 
 @app.route("/viewFollowingFollowersPage")
 def followers_page():
@@ -217,7 +289,7 @@ def generate_new_user_folder(username):
   # thanks to https://www.geeksforgeeks.org/create-a-directory-in-python/ for help with this function
   try:
     # create new posts path
-    new_user_path = PARENT_DIR + "Posts\\" + username
+    new_user_path = PARENT_DIR + "User\\" + username
     os.mkdir(new_user_path)
     print(f"Directory '{new_user_path}' created successfully.")
   except FileExistsError:
