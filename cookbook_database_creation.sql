@@ -10,7 +10,7 @@ CREATE  TABLE users (
  username varchar(30) not null unique,  -- create username var, cant be null and is unique
  pass varchar(30) not null,  							-- create password var, cant be null, is not unique
  email varchar(30) unique, 							-- create email var, can be null (optional) and is unique 
- displayname varchar(30), 							-- create displayname var, cant be null (optional) and is not unique 
+ displayname varchar(30) not null, 							-- create displayname var, cant be null (optional) and is not unique 
  settings varchar(500) not null, -- unique, commented out until needed
  `logfile` varchar(500) not null, -- unique, commented out until needed
  followers VARCHAR(500) NOT NULL default 0,
