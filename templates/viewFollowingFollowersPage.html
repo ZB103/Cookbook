@@ -9,10 +9,10 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" type="text/css"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='followingFollowersPage.css') }}" type="text/css"/>
   </head>
-  <body>
+  <body onload="getFollow()">
     <header class="imgArea">
       <a href="/home">
-        <img class="logo" src="{{ url_for('static', filename='imgs/newLogo.png') }}" alt="Cookbook's logo"/>
+        <img class="logo" src="{{ url_for('static', filename='imgs/newLogo2.png') }}" alt="Cookbook's logo"/>
       </a>
       <search class="searchBar">
         <form>
@@ -25,9 +25,12 @@
     </header>
     <div class="followListArea"> 
       <div class="tab"> 
-        <button class="tablinks" onclick="showFollowers()" style="float: left;"> Followers </button>
-        <button class="tablinks" onclick="showFollowing()" style="float: left;"> Following </button>
+        <button class="tablinks" onclick="openFollow(event, 'Followers')" id="defaultOpen" style="float: left;"> Followers </button>
+        <button class="tablinks" onclick="openFollow(event, 'Following')" style="float: left;"> Following </button>
       </div>
+      <div id="Followers" class="tabcontent"></div>
+      <div id="Following" class="tabcontent"></div>
     </div>
+    <script src="{{ url_for('static', filename='followingFollowersPage.js') }}"></script>
   </body>
 </html>

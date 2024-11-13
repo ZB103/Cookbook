@@ -9,8 +9,6 @@ PARENT_DIR = f"C:\\Users\\{HOST_NAME}\\Documents\\Cookbook_Files\\"
 
 # connect to database
 mydb = mysql.connector.connect(
-  user="root",
-  password="SQLroot",
   host="localhost",
   database="cookbook_database"
 )

@@ -53,16 +53,21 @@ body {
     border-width: 1px;
     border-color: #435C3E;
     width: 800px;
-    height: 600px;
+    height: auto;
     position: absolute;
     top: 110px;
     left: 25%;
     z-index: 1;
 }
 
-.tablinks {
+.tab {
+    overflow: hidden;
+}
+
+.tab button {
     height: 50px; 
     width: 100px;
+    cursor: pointer;
     background-color: #732C2C;
     border-style: none;
     color: #F7FFD1;
@@ -70,4 +75,17 @@ body {
     font-size: 20px;
     text-align: center;
     border-radius: 8px;
+    transition: 0.3s;
+}
+
+.tab button:hover {
+    background-color: #ae4444;
+}
+
+.tab button.active {
+    background-color: #9c0a0a;
+}
+
+.tabcontent {
+    display: none;
 }

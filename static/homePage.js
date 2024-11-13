@@ -1,22 +1,6 @@
-let currPageNum = 0;
-
-async function pageLeft(){
-  if(currPageNum == 0){
-    return;
-  } else {
-    currPageNum--;
-    getPosts();
-  }
-}
-
-async function pageRight(){
-  currPageNum++;
-  getPosts();
-}
-
 // thanks to https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch for help with fetch
 async function getPosts() {
-  const url = "/loadPostsPg" + currPageNum;
+  const url = "/loadPosts";
   console.log(url);
   try {
     const response = await fetch(url);
@@ -27,16 +11,57 @@ async function getPosts() {
     const postJson = await response.json();
     console.log(postJson);
 
-    for(let i = 0; i < 3; i++){
+    for(let i = 0; i < 6; i++){
       let id = "p" + i;
       let post = document.getElementById(id);
       let postChildren = post.children;
-      postChildren[0].textContent = postJson[i]["title"];
-      postChildren[1].textContent = postJson[i]["description"];
-      postChildren[2].textContent = postJson[i]["id"];
+      
+      if (postJson[i]["description"] == "") {
+        postChildren[0].textContent = postJson[i]["username"]
+        postChildren[1].textContent = postJson[i]["title"];
+        let moreChildren = document.getElementById("more"+i).children;
+        moreChildren[0].textContent = "Ingredients: ";
+        moreChildren[1].textContent = postJson[i]["ingredients"];
+        moreChildren[3].textContent = "Instructions: ";
+        moreChildren[4].textContent = postJson[i]["instructions"];
+        moreChildren[6].textContent = "Tags: ";
+        moreChildren[7].textContent = postJson[i]["tags"];
+        postChildren[3].textContent = postJson[i]["id"];
+      }
+      else {
+        postChildren[0].textContent = postJson[i]["username"]
+        postChildren[1].textContent = postJson[i]["title"];
+        postChildren[2].textContent = postJson[i]["description"];
+        let moreChildren = document.getElementById("more"+i).children;
+        moreChildren[0].textContent = "Ingredients: ";
+        moreChildren[1].textContent = postJson[i]["ingredients"];
+        moreChildren[3].textContent = "Instructions: ";
+        moreChildren[4].textContent = postJson[i]["instructions"];
+        moreChildren[6].textContent = "Tags: ";
+        moreChildren[7].textContent = postJson[i]["tags"];
+        postChildren[4].textContent = postJson[i]["id"];
+      }
     }
 
   } catch (error) {
-    console.error(error.message);
+    console.log(error.message);
+  }
+}
+
+function showExcessText(num) {
+  var dots = document.getElementById("dots"+num);
+  var moreText = document.getElementById("more"+num);
+  var btnText = document.getElementById("showMore"+num);
+
+  if (dots.style.display === "none") {
+    dots.style.display = "inline";
+    btnText.innerHTML = "Show More"
+    moreText.style.display = "none";
+  }
+
+  else {
+    dots.style.display = "none";
+    btnText.innerHTML = "Show less"; 
+    moreText.style.display = "inline";
   }
 }
