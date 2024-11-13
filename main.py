@@ -9,6 +9,8 @@ PARENT_DIR = f"C:\\Users\\{HOST_NAME}\\Documents\\Cookbook_Files\\"
 
 # connect to database
 mydb = mysql.connector.connect(
+  user="root",
+  password="MySQLroot",
   host="localhost",
   database="cookbook_database"
 )
@@ -32,8 +34,9 @@ def login():
     elif getPassword(username) == password:
       session["user"] = username
       # get the ID of the user and add it to the session
-      id_args = (username, (0, 'INT'))
-      session["userID"] = cursor.callproc('getID', id_args)
+      id_args = (username, 0)
+      output = cursor.callproc('getID', id_args)
+      session["userID"] = output[1]
       return redirect(url_for("home"))
     else:
       flash("Your username or password is incorrect. Please try again", "info")
@@ -71,10 +74,9 @@ def new_account():
       cursor.execute(sql_cmnd, val)
       mydb.commit()
       # add user to the session
-      session["user"] = username
-      # get the ID of the user and add it to the session
-      id_args = (username, (0, 'INT'))
-      session["userID"] = cursor.callproc('getID', id_args)
+      id_args = (username, 0)
+      output = cursor.callproc('getID', id_args)
+      session["userID"] = output[1]
       return redirect(url_for("home"))
   else:
     return render_template("newAccountPage.html")
@@ -133,7 +135,7 @@ def load_6_posts():
     file_path = myresult[i][0]
     # load post as json from the post's file location
     with open(file_path, mode="r", encoding="utf-8") as read_file:
-      post_dict[dict_index] = json.load(read_file)
+      post_dict[i] = json.load(read_file)
     dict_index-=1
 
   post_json = json.dumps(post_dict)
@@ -142,7 +144,8 @@ def load_6_posts():
 @app.route("/loadUserPosts")
 def load_user_posts():
   post_dict = {0:None, 1:None, 2:None, 3:None, 4:None, 5:None}
-  sql_cmnd = f"SELECT post_path FROM posts WHERE post_creator = '{session["user"]}' ORDER BY postid DESC"
+  username = session["user"]
+  sql_cmnd = f"SELECT post_path FROM posts WHERE post_creator = '{username}' ORDER BY postid DESC"
   cursor.execute(sql_cmnd)
   myresult = cursor.fetchall()
   start = 0
@@ -165,6 +168,10 @@ def load_user_posts():
 @app.route("/viewProfilePage")
 def view_profile_page():
   return render_template("viewProfilePage.html")
+
+@app.route("/getUsername")
+def get_username():
+  return session["user"]
 
 @app.route("/ProfileSettings")
 def profile_settings():
@@ -194,7 +201,7 @@ def grab_bookmarks():
       post_id_json = json.load(read_bookmark_list)
     post_ids = post_id_json["bookmarks"]
     # if the user has something bookmarked
-    if post_ids["isEmpty"] == False:
+    if len(post_ids) >= 1:
       # for each post id in the list, grab the path to that post, load it, and insertit into the dictonary that we're going to return
       posts_dict = {"isEmpty" : False}
       num = 0
@@ -334,7 +341,7 @@ def generate_new_user_folder(username):
   # thanks to https://www.geeksforgeeks.org/create-a-directory-in-python/ for help with this function
   try:
     # create new posts path
-    new_user_path = PARENT_DIR + "User\\" + username
+    new_user_path = PARENT_DIR + "Users\\" + username + "\\"
     os.mkdir(new_user_path)
     print(f"Directory '{new_user_path}' created successfully.")
   except FileExistsError:

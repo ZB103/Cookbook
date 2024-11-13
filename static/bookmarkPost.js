@@ -6,7 +6,7 @@ async function bookmarkPost(num) {
   // generate the link to send to
   let post = document.getElementById("p"+num);
   let postAttributes = post.children;
-  let postID = postAttributes[2];
+  let postID = postAttributes[4];
   const url = "/bookmarkPost" + postID.textContent;
 
   // actually send the id
@@ -35,7 +35,7 @@ async function unbookmarkPost(num) {
   // generate the link to send to
   let post = document.getElementById("p"+num);
   let postAttributes = post.children;
-  let postID = postAttributes[2];
+  let postID = postAttributes[4];
   const url = "/unbookmarkPost" + postID.textContent;
 
   // actually send the id
