@@ -113,22 +113,48 @@ def create_post():
   else:
     return render_template("post-creation.html")
 
-@app.route("/loadPostsPg<number>")
-def load_3_posts(number):
-  number = int(number)
-  post_dict = {0:None, 1:None, 2:None}
+@app.route("/loadPosts")
+def load_6_posts():
+  post_dict = {0:None, 1:None, 2:None, 3:None, 4:None, 5:None}
   sql_cmnd = "SELECT post_path FROM posts ORDER BY postid DESC"
   cursor.execute(sql_cmnd)
   myresult = cursor.fetchall()
-  start = number*3
-  end = (number*3)+3
-  dict_index = 0
+  start = 0
+  if len(myresult) > 6: 
+    end = 6
+    dict_index = 5
+  else:
+    end = len(myresult)
+    dict_index = len(myresult) - 1
   for i in range(start, end):
     file_path = myresult[i][0]
     # load post as json from the post's file location
     with open(file_path, mode="r", encoding="utf-8") as read_file:
       post_dict[dict_index] = json.load(read_file)
-    dict_index+=1
+    dict_index-=1
+
+  post_json = json.dumps(post_dict)
+  return post_json
+
+@app.route("/loadUserPosts")
+def load_user_posts():
+  post_dict = {0:None, 1:None, 2:None, 3:None, 4:None, 5:None}
+  sql_cmnd = f"SELECT post_path FROM posts WHERE post_creator = '{session["user"]}' ORDER BY postid DESC"
+  cursor.execute(sql_cmnd)
+  myresult = cursor.fetchall()
+  start = 0
+  if len(myresult) > 6: 
+    end = 6
+    dict_index = 5
+  else:
+    end = len(myresult)
+    dict_index = len(myresult) - 1
+  for i in range(start, end):
+    file_path = myresult[i][0]
+    # load post as json from the post's file location
+    with open(file_path, mode="r", encoding="utf-8") as read_file:
+      post_dict[dict_index] = json.load(read_file)
+    dict_index-=1
 
   post_json = json.dumps(post_dict)
   return post_json
