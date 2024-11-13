@@ -51,7 +51,7 @@
             <p class="hidden" hidden></p>
             <button onclick="showExcessText(0)" id="showMore0" class="showButton">Show More</button>
           </div>
-          <button onclick="removeFromBookmark()" type="button" class="interactPost"> Remove Bookmark </button>
+          <button onclick="unbookmarkPost(0)" type="button" class="interactPost"> Remove Bookmark </button>
         </div>
         <br> <div class="post">
           <div class="clickPost" id="p1">
@@ -69,10 +69,11 @@
             <p class="hidden" hidden></p>
             <button onclick="showExcessText(1)" id="showMore1" class="showButton">Show More</button>
           </div>
-          <button onclick="removeFromBookmark()" type="button" class="interactPost"> Remove Bookmark </button>
+          <button onclick="unbookmarkPost(1)" type="button" class="interactPost"> Remove Bookmark </button>
         </div>
         <br> <div class="post">
           <div class="clickPost" id="p2">
+            <h2 class="user"></h2>
             <h1 class="title"></h1>
             <p class="desc"></p>
             <p>
@@ -86,10 +87,11 @@
             <p class="hidden" hidden></p>
             <button onclick="showExcessText(2)" id="showMore2" class="showButton">Show More</button>
           </div>
-          <button onclick="removeFromBookmark()" type="button" class="interactPost"> Remove Bookmark </button>
+          <button onclick="unbookmarkPost(2)" type="button" class="interactPost"> Remove Bookmark </button>
         </div>
         <br> <div class="post">
           <div class="clickPost" id="p3">
+            <h2 class="user"></h2>
             <h1 class="title"></h1>
             <p class="desc"></p>
             <p>
@@ -103,10 +105,11 @@
             <p class="hidden" hidden></p>
             <button onclick="showExcessText(3)" id="showMore3" class="showButton">Show More</button>
           </div>
-          <button onclick="removeFromBookmark()" type="button" class="interactPost"> Remove Bookmark </button>
+          <button onclick="unbookmarkPost(3)" type="button" class="interactPost"> Remove Bookmark </button>
         </div>
         <br> <div class="post">
           <div class="clickPost" id="p4">
+            <h2 class="user"></h2>
             <h1 class="title"></h1>
             <p class="desc"></p>
             <p>
@@ -120,10 +123,11 @@
             <p class="hidden" hidden></p>
             <button onclick="showExcessText(4)" id="showMore4" class="showButton">Show More</button>
           </div>
-          <button onclick="removeFromBookmark()" type="button" class="interactPost"> Remove Bookmark </button>
+          <button onclick="unbookmarkPost(4)" type="button" class="interactPost"> Remove Bookmark </button>
         </div>
         <br> <div class="post">
           <div class="clickPost" id="p5">
+            <h2 class="user"></h2>
             <h1 class="title"></h1>
             <p class="desc"></p>
             <p>
@@ -137,9 +141,9 @@
             <p class="hidden" hidden></p>
             <button onclick="showExcessText(5)" id="showMore5" class="showButton">Show More</button>
           </div>
-          <button onclick="removeFromBookmark()" type="button" class="interactPost"> Remove Bookmark </button>
+          <button onclick="unbookmarkPost(5)" type="button" class="interactPost"> Remove Bookmark </button>
         </div>
-        <script src="{{ url_for('static', filename='homePage.js') }}"></script>
+        <script src="{{ url_for('static', filename='bookMarkPost.js') }}"></script>
         <script src="{{ url_for('static', filename='bookmarkPage.js') }}"></script>
       </center>
     </div>

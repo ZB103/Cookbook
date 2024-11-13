@@ -19,6 +19,7 @@ async function getPosts() {
       if (postJson[i]["description"] == "") {
         postChildren[0].textContent = postJson[i]["username"]
         postChildren[1].textContent = postJson[i]["title"];
+        postChildren[2].textContent = "";
         let moreChildren = document.getElementById("more"+i).children;
         moreChildren[0].textContent = "Ingredients: ";
         moreChildren[1].textContent = postJson[i]["ingredients"];
@@ -26,7 +27,7 @@ async function getPosts() {
         moreChildren[4].textContent = postJson[i]["instructions"];
         moreChildren[6].textContent = "Tags: ";
         moreChildren[7].textContent = postJson[i]["tags"];
-        postChildren[3].textContent = postJson[i]["id"];
+        postChildren[4].textContent = postJson[i]["id"];
       }
       else {
         postChildren[0].textContent = postJson[i]["username"]

@@ -3,13 +3,26 @@ function runStartFunctions() {
     getPosts();
 }
 
-function getUsername() {
-    let un = document.getElementById("username");
-    un.textContent = "[Username]";
+async function getUsername() {
+    const url = "/getUsername";
+    console.log(url);
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`Response status: ${response.status}`);
+      }
+  
+      const postResponseText = await response.text();
+      console.log(postResponseText);
+      let un = document.getElementById("username");
+      un.textContent = postResponseText;
+    } catch (error) {
+        console.log(error.message);
+      }
 }
 
 async function getPosts() {
-    const url = "/loaduserPosts";
+    const url = "/loadUserPosts";
     console.log(url);
     try {
       const response = await fetch(url);
@@ -28,6 +41,7 @@ async function getPosts() {
         if (postJson[i]["description"] == "") {
           postChildren[0].textContent = postJson[i]["username"]
           postChildren[1].textContent = postJson[i]["title"];
+          postChildren[2].textContent = "";
           let moreChildren = document.getElementById("more"+i).children;
           moreChildren[0].textContent = "Ingredients: ";
           moreChildren[1].textContent = postJson[i]["ingredients"];
@@ -35,7 +49,7 @@ async function getPosts() {
           moreChildren[4].textContent = postJson[i]["instructions"];
           moreChildren[6].textContent = "Tags: ";
           moreChildren[7].textContent = postJson[i]["tags"];
-          postChildren[3].textContent = postJson[i]["id"];
+          postChildren[4].textContent = postJson[i]["id"];
         }
         else {
           postChildren[0].textContent = postJson[i]["username"]
