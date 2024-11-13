@@ -176,30 +176,40 @@ def grab_bookmarks():
   username = session["user"]
   # TODO: replace this with SQL request
   path = PARENT_DIR + "Users\\" + username + "\\bookmarks.json"
-  # if the user hasn't bookmarked anything
+  # if the user has never bookmarked anything
   if os.path.isfile(path) == False:
-    empty_json = {"bookmarks" : []}
+    empty_json = {
+      "isEmpty" : True,
+      "0": None
+    }
     return json.dumps(empty_json)
   else:
     # open the list of the user's bookmarks
     with open(path, mode="r", encoding="utf-8") as read_bookmark_list:
       post_id_json = json.load(read_bookmark_list)
     post_ids = post_id_json["bookmarks"]
-    # if the user doesn't have anything bookmarked
-    if not post_ids:
-      empty_json = {"bookmarks" : []}
+    # if the user has something bookmarked
+    if post_ids["isEmpty"] == False:
+      # for each post id in the list, grab the path to that post, load it, and insertit into the dictonary that we're going to return
+      posts_dict = {"isEmpty" : False}
+      num = 0
+      for id in post_ids:
+        # TODO: replace this with function call
+        sql_cmnd = f"SELECT post_path FROM posts WHERE postid = {id}"
+        cursor.execute(sql_cmnd)
+        post_path = cursor.fetchone()
+        # load post as json from the post's file location
+        with open(post_path[0], mode="r", encoding="utf-8") as read_post_json:
+          posts_dict[num] = json.load(read_post_json)
+        num += 1
+      return json.dumps(posts_dict)
+    else:
+      # if the user doesn't have anything bookmarked
+      empty_json = {  
+        "isEmpty" : True,
+        "0": None
+      }
       return json.dumps(empty_json)
-    # for each post id in the list, grab the path to that post, load it, and insertit into the dictonary that we're going to return
-    posts_dict = {}
-    for id in post_ids:
-      # TODO: replace this with function call
-      sql_cmnd = f"SELECT post_path FROM posts WHERE postid = {id}"
-      cursor.execute(sql_cmnd)
-      post_path = cursor.fetchone()
-      # load post as json from the post's file location
-      with open(post_path[0], mode="r", encoding="utf-8") as read_post_json:
-        posts_dict[id] = json.load(read_post_json)
-    return json.dumps(posts_dict)
 
 
 @app.route("/bookmarkPost<id>")
