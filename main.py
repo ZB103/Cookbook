@@ -31,6 +31,9 @@ def login():
     # if the user's password is the same as the password that was inputted
     elif getPassword(username) == password:
       session["user"] = username
+      # get the ID of the user and add it to the session
+      id_args = (username, (0, 'INT'))
+      session["userID"] = cursor.callproc('getID', id_args)
       return redirect(url_for("home"))
     else:
       flash("Your username or password is incorrect. Please try again", "info")
@@ -69,6 +72,9 @@ def new_account():
       mydb.commit()
       # add user to the session
       session["user"] = username
+      # get the ID of the user and add it to the session
+      id_args = (username, (0, 'INT'))
+      session["userID"] = cursor.callproc('getID', id_args)
       return redirect(url_for("home"))
   else:
     return render_template("newAccountPage.html")
@@ -82,7 +88,6 @@ def logout():
 @app.route("/home")
 def home():
   if "user" in session:
-    user = session["user"]
     return render_template("homePage.html")
   else:
     return redirect(url_for("login"))
@@ -134,6 +139,29 @@ def load_6_posts():
   post_json = json.dumps(post_dict)
   return post_json
 
+@app.route("/loadUserPosts")
+def load_user_posts():
+  post_dict = {0:None, 1:None, 2:None, 3:None, 4:None, 5:None}
+  sql_cmnd = f"SELECT post_path FROM posts WHERE post_creator = '{session["user"]}' ORDER BY postid DESC"
+  cursor.execute(sql_cmnd)
+  myresult = cursor.fetchall()
+  start = 0
+  if len(myresult) > 6: 
+    end = 6
+    dict_index = 5
+  else:
+    end = len(myresult)
+    dict_index = len(myresult) - 1
+  for i in range(start, end):
+    file_path = myresult[i][0]
+    # load post as json from the post's file location
+    with open(file_path, mode="r", encoding="utf-8") as read_file:
+      post_dict[dict_index] = json.load(read_file)
+    dict_index-=1
+
+  post_json = json.dumps(post_dict)
+  return post_json
+
 @app.route("/viewProfilePage")
 def view_profile_page():
   return render_template("viewProfilePage.html")
@@ -148,41 +176,55 @@ def bookmark_page():
 
 @app.route("/grabBookmarks")
 def grab_bookmarks():
-  username = session["user"]
-  # TODO: replace this with SQL request
-  path = PARENT_DIR + "Users\\" + username + "\\bookmarks.json"
-  # if the user hasn't bookmarked anything
+  # get path to the user's bookmarks
+  path_args = (session["userID"], (0, 'CHAR'))
+  path_result = cursor.callproc('getBookmarks', path_args)
+  path = path_result[1]
+
+  # if the user has never bookmarked anything
   if os.path.isfile(path) == False:
-    empty_json = {"bookmarks" : []}
+    empty_json = {
+      "isEmpty" : True,
+      "0": None
+    }
     return json.dumps(empty_json)
   else:
     # open the list of the user's bookmarks
     with open(path, mode="r", encoding="utf-8") as read_bookmark_list:
       post_id_json = json.load(read_bookmark_list)
     post_ids = post_id_json["bookmarks"]
-    # if the user doesn't have anything bookmarked
-    if not post_ids:
-      empty_json = {"bookmarks" : []}
+    # if the user has something bookmarked
+    if post_ids["isEmpty"] == False:
+      # for each post id in the list, grab the path to that post, load it, and insertit into the dictonary that we're going to return
+      posts_dict = {"isEmpty" : False}
+      num = 0
+      for id in post_ids:
+        # TODO: replace this with function call
+        sql_cmnd = f"SELECT post_path FROM posts WHERE postid = {id}"
+        cursor.execute(sql_cmnd)
+        post_path = cursor.fetchone()
+        # load post as json from the post's file location
+        with open(post_path[0], mode="r", encoding="utf-8") as read_post_json:
+          posts_dict[num] = json.load(read_post_json)
+        num += 1
+      return json.dumps(posts_dict)
+    else:
+      # if the user doesn't have anything bookmarked
+      empty_json = {  
+        "isEmpty" : True,
+        "0": None
+      }
       return json.dumps(empty_json)
-    # for each post id in the list, grab the path to that post, load it, and insertit into the dictonary that we're going to return
-    posts_dict = {}
-    for id in post_ids:
-      # TODO: replace this with function call
-      sql_cmnd = f"SELECT post_path FROM posts WHERE postid = {id}"
-      cursor.execute(sql_cmnd)
-      post_path = cursor.fetchone()
-      # load post as json from the post's file location
-      with open(post_path[0], mode="r", encoding="utf-8") as read_post_json:
-        posts_dict[id] = json.load(read_post_json)
-    return json.dumps(posts_dict)
 
 
 @app.route("/bookmarkPost<id>")
 def save_bookmark(id):
-  username = session["user"]
+  # get path to the user's bookmarks
+  path_args = (session["userID"], (0, 'CHAR'))
+  path_result = cursor.callproc('getBookmarks', path_args)
+  path = path_result[1]
+
   # if this is the first post the user is bookmarking, then create a file to store their bookmarks in
-  # TODO: replace this with SQL query
-  path = PARENT_DIR + "Users\\" + username + "\\bookmarks.json"
   if os.path.isfile(path) == False:
     empty_json = {"bookmarks" : []}
     with open(path, mode="w", encoding="utf-8") as write_file:
@@ -203,9 +245,11 @@ def save_bookmark(id):
 
 @app.route("/unbookmarkPost<id>")
 def del_bookmark(id):
-  username = session["user"]
-  # TODO: replace this with SQL query
-  path = PARENT_DIR + "Users\\" + username + "\\bookmarks.json"
+  # get path to the user's bookmarks
+  path_args = (session["userID"], (0, 'CHAR'))
+  path_result = cursor.callproc('getBookmarks', path_args)
+  path = path_result[1]
+
   # load the user's bookmark file
   bookmark_dict = None
   with open(path, mode="r", encoding="utf-8") as read_file:
