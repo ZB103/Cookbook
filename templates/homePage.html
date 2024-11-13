@@ -13,7 +13,7 @@
   <body onload="getPosts()">
     <header class="imgArea">
       <a href="/home">
-        <img class="logo" src="{{ url_for('static', filename='imgs/newLogo.png') }}" alt="Cookbook's logo"/>
+        <img class="logo" src="{{ url_for('static', filename='imgs/newLogo2.png') }}" alt="Cookbook's logo"/>
       </a>
       <search class="searchBar">
         <form>
@@ -37,34 +37,120 @@
     <div class="container">
       <center>
         <div class="post">
-          <div onclick="redirectToPost(0)" class="clickPost" id="p0">
+          <div class="clickPost" id="p0">
+            <h2 class="user"></h2>
             <h1 class="title"></h1>
             <p class="desc"></p>
+            <p>
+              <span id="dots0">...</span>
+              <span class="more" id="more0">
+                <strong></strong> <a class="ingredients"></a>
+                <br> <strong></strong> <a class="instructions"></a>
+                <br> <strong></strong> <a class="tags"></a>
+              </span>
+            </p>
             <p class="hidden" hidden></p>
+            <button onclick="showExcessText(0)" id="showMore0" class="showButton">Show More</button>
           </div>
           <button onclick="location.href='test.html'" type="button" class="interactPost"> Like </button>
           <button onclick="location.href='test.html'" type="button" class="interactPost"> Comment </button>
           <button onclick="bookmarkPost(0)" type="button" class="interactPost bookmarkBttn"> Bookmark </button>
         </div>
         <br> <div class="post">
-          <div onclick="redirectToPost(1)" class="clickPost" id="p1">
+          <div class="clickPost" id="p1">
+            <h2 class="user"></h2>
             <h1 class="title"></h1>
             <p class="desc"></p>
+            <p>
+              <span id="dots1">...</span>
+              <span class="more" id="more1">
+                <strong></strong> <a class="ingredients"></a>
+                <br> <strong></strong> <a class="instructions"></a>
+                <br> <strong></strong> <a class="tags"></a>
+              </span>
+            </p>
             <p class="hidden" hidden></p>
+            <button onclick="showExcessText(1)" id="showMore1" class="showButton">Show More</button>
           </div>
           <button onclick="location.href='test.html'" type="button" class="interactPost"> Like </button>
           <button onclick="location.href='test.html'" type="button" class="interactPost"> Comment </button>
           <button onclick="bookmarkPost(1)" type="button" class="interactPost bookmarkBttn"> Bookmark </button>
         </div>
         <br> <div class="post">
-          <div onclick="redirectToPost(2)" class="clickPost" id="p2">
+          <div class="clickPost" id="p2">
             <h1 class="title"></h1>
             <p class="desc"></p>
+            <p>
+              <span id="dots2">...</span>
+              <span class="more" id="more2">
+                <strong></strong> <a class="ingredients"></a>
+                <br> <strong></strong> <a class="instructions"></a>
+                <br> <strong></strong> <a class="tags"></a>
+              </span>
+            </p>
             <p class="hidden" hidden></p>
+            <button onclick="showExcessText(2)" id="showMore2" class="showButton">Show More</button>
           </div>
           <button onclick="location.href='test.html'" type="button" class="interactPost"> Like </button>
           <button onclick="location.href='test.html'" type="button" class="interactPost"> Comment </button>
           <button onclick="bookmarkPost(2)" type="button" class="interactPost bookmarkBttn"> Bookmark </button>
+        </div>
+        <br> <div class="post">
+          <div class="clickPost" id="p3">
+            <h1 class="title"></h1>
+            <p class="desc"></p>
+            <p>
+              <span id="dots3">...</span>
+              <span class="more" id="more3">
+                <strong></strong> <a class="ingredients"></a>
+                <br> <strong></strong> <a class="instructions"></a>
+                <br> <strong></strong> <a class="tags"></a>
+              </span>
+            </p>
+            <p class="hidden" hidden></p>
+            <button onclick="showExcessText(3)" id="showMore3" class="showButton">Show More</button>
+          </div>
+          <button onclick="location.href='test.html'" type="button" class="interactPost"> Like </button>
+          <button onclick="location.href='test.html'" type="button" class="interactPost"> Comment </button>
+          <button onclick="bookmarkPost(3)" type="button" class="interactPost bookmarkBttn"> Bookmark </button>
+        </div>
+        <br> <div class="post">
+          <div class="clickPost" id="p4">
+            <h1 class="title"></h1>
+            <p class="desc"></p>
+            <p>
+              <span id="dots4">...</span>
+              <span class="more" id="more4">
+                <strong></strong> <a class="ingredients"></a>
+                <br> <strong></strong> <a class="instructions"></a>
+                <br> <strong></strong> <a class="tags"></a>
+              </span>
+            </p>
+            <p class="hidden" hidden></p>
+            <button onclick="showExcessText(4)" id="showMore4" class="showButton">Show More</button>
+          </div>
+          <button onclick="location.href='test.html'" type="button" class="interactPost"> Like </button>
+          <button onclick="location.href='test.html'" type="button" class="interactPost"> Comment </button>
+          <button onclick="bookmarkPost(4)" type="button" class="interactPost bookmarkBttn"> Bookmark </button>
+        </div>
+        <br> <div class="post">
+          <div class="clickPost" id="p5">
+            <h1 class="title"></h1>
+            <p class="desc"></p>
+            <p>
+              <span id="dots5">...</span>
+              <span class="more" id="more5">
+                <strong></strong> <a class="ingredients"></a>
+                <br> <strong></strong> <a class="instructions"></a>
+                <br> <strong></strong> <a class="tags"></a>
+              </span>
+            </p>
+            <p class="hidden" hidden></p>
+            <button onclick="showExcessText(5)" id="showMore5" class="showButton">Show More</button>
+          </div>
+          <button onclick="location.href='test.html'" type="button" class="interactPost"> Like </button>
+          <button onclick="location.href='test.html'" type="button" class="interactPost"> Comment </button>
+          <button onclick="bookmarkPost(5)" type="button" class="interactPost bookmarkBttn"> Bookmark </button>
         </div>
       </center>
     </div>

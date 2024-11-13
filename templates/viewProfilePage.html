@@ -12,7 +12,7 @@
   <body onload="runStartFunctions()">
     <header class="imgArea">
       <a href="/home">
-        <img class="logo" src="{{ url_for('static', filename='imgs/newLogo.png') }}" alt="Cookbook's logo"/>
+        <img class="logo" src="{{ url_for('static', filename='imgs/newLogo2.png') }}" alt="Cookbook's logo"/>
       </a>
       <search class="searchBar">
         <form>
@@ -28,8 +28,8 @@
         <li><a href="/home"> Return Home </a></li>
         <li><a href="/ProfileSettings">  Settings </a></li>
         <li><a href="/BookmarkPage"> Bookmarks </a></li>
-        <li><a href="/ProfileSettings"> Following </a></li>
-        <li><a href="/ProfileSettings"> Followers </a></li>
+        <li><a href="/viewFollowingFollowersPage"> Follows </a></li>
+        <li><a href="/logout"> Log Out </a></li>
       </ul> 
     </div>
     <div class="userArea">
@@ -41,32 +41,111 @@
     <div class="container">
       <center>
         <div class="post">
-          <div id="post1" onclick="redirectToPost(0)" class="clickPost"></div>
+          <div class="clickPost" id="p0">
+            <h2 class="user"></h2>
+            <h1 class="title"></h1>
+            <p class="desc"></p>
+            <p>
+              <span id="dots0">...</span>
+              <span class="more" id="more0">
+                <strong></strong> <a class="ingredients"></a>
+                <br> <strong></strong> <a class="instructions"></a>
+                <br> <strong></strong> <a class="tags"></a>
+              </span>
+            </p>
+            <p class="hidden" hidden></p>
+            <button onclick="showExcessText(0)" id="showMore0" class="showButton">Show More</button>
+          </div>
           <button onclick="deletePost()" type="button" class="interactPost"> Delete Post </button>
         </div>
         <br> <div class="post">
-          <div id="post2" onclick="redirectToPost(1)" class="clickPost"></div>
+          <div class="clickPost" id="p1">
+            <h2 class="user"></h2>
+            <h1 class="title"></h1>
+            <p class="desc"></p>
+            <p>
+              <span id="dots1">...</span>
+              <span class="more" id="more1">
+                <strong></strong> <a class="ingredients"></a>
+                <br> <strong></strong> <a class="instructions"></a>
+                <br> <strong></strong> <a class="tags"></a>
+              </span>
+            </p>
+            <p class="hidden" hidden></p>
+            <button onclick="showExcessText(1)" id="showMore1" class="showButton">Show More</button>
+          </div>
           <button onclick="deletePost()" type="button" class="interactPost"> Delete Post </button>
         </div>
         <br> <div class="post">
-          <div id="post3" onclick="redirectToPost(2)" class="clickPost"></div>
+          <div class="clickPost" id="p2">
+            <h1 class="title"></h1>
+            <p class="desc"></p>
+            <p>
+              <span id="dots2">...</span>
+              <span class="more" id="more2">
+                <strong></strong> <a class="ingredients"></a>
+                <br> <strong></strong> <a class="instructions"></a>
+                <br> <strong></strong> <a class="tags"></a>
+              </span>
+            </p>
+            <p class="hidden" hidden></p>
+            <button onclick="showExcessText(2)" id="showMore2" class="showButton">Show More</button>
+          </div>
           <button onclick="deletePost()" type="button" class="interactPost"> Delete Post </button>
         </div>
         <br> <div class="post">
-          <div id="post4" onclick="redirectToPost(3)" class="clickPost"></div>
+          <div class="clickPost" id="p3">
+            <h1 class="title"></h1>
+            <p class="desc"></p>
+            <p>
+              <span id="dots3">...</span>
+              <span class="more" id="more3">
+                <strong></strong> <a class="ingredients"></a>
+                <br> <strong></strong> <a class="instructions"></a>
+                <br> <strong></strong> <a class="tags"></a>
+              </span>
+            </p>
+            <p class="hidden" hidden></p>
+            <button onclick="showExcessText(3)" id="showMore3" class="showButton">Show More</button>
+          </div>
           <button onclick="deletePost()" type="button" class="interactPost"> Delete Post </button>
         </div>
         <br> <div class="post">
-          <div id="post5" onclick="redirectToPost(4)" class="clickPost"></div>
+          <div class="clickPost" id="p4">
+            <h1 class="title"></h1>
+            <p class="desc"></p>
+            <p>
+              <span id="dots4">...</span>
+              <span class="more" id="more4">
+                <strong></strong> <a class="ingredients"></a>
+                <br> <strong></strong> <a class="instructions"></a>
+                <br> <strong></strong> <a class="tags"></a>
+              </span>
+            </p>
+            <p class="hidden" hidden></p>
+            <button onclick="showExcessText(4)" id="showMore4" class="showButton">Show More</button>
+          </div>
           <button onclick="deletePost()" type="button" class="interactPost"> Delete Post </button>
         </div>
         <br> <div class="post">
-          <div id="post6" onclick="redirectToPost(5)" class="clickPost"></div>
+          <div class="clickPost" id="p5">
+            <h1 class="title"></h1>
+            <p class="desc"></p>
+            <p>
+              <span id="dots5">...</span>
+              <span class="more" id="more5">
+                <strong></strong> <a class="ingredients"></a>
+                <br> <strong></strong> <a class="instructions"></a>
+                <br> <strong></strong> <a class="tags"></a>
+              </span>
+            </p>
+            <p class="hidden" hidden></p>
+            <button onclick="showExcessText(5)" id="showMore5" class="showButton">Show More</button>
+          </div>
           <button onclick="deletePost()" type="button" class="interactPost"> Delete Post </button>
         </div>
-        <script src="{{ url_for('static', filename='previous-post.js') }}"></script>
-        <script src="{{ url_for('static', filename='viewProfilePage.js') }}"></script>
       </center>
     </div>
+    <script src="{{ url_for('static', filename='homePage.js') }}"></script>
   </body>
 </html>

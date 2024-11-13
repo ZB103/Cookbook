@@ -107,6 +107,7 @@ li a:hover {
 }
 
 .container {
+    overflow: hidden;
     border-style: solid;
     border-width: 1px;
     border-color: #435C3E;
@@ -122,7 +123,7 @@ li a:hover {
 }
 
 .post {
-    height: 150px; 
+    height: auto; 
     width: 1050px;
     border-style: none;
     border-width: 1px; 
@@ -130,9 +131,32 @@ li a:hover {
 }
 
 .clickPost {
-    height: 100px; 
-    width: 1440px;
-    text-align: justify; 
+    height: auto; 
+    width: 1050px;
+    text-align: justify;
+    word-wrap: break-word;
+    font-family: "Ubuntu", sans-serif;
+}
+
+.user {
+    font-size: 15px;
+    font-family: "Ubuntu", sans-serif;
+}
+
+.title {
+    font-size: 20px;
+    font-family: "Ubuntu", sans-serif;
+}
+
+.more {
+    display: none;
+}
+
+.showButton {
+    background-color: transparent;
+    border-style: none;
+    font-size: 15px;
+    font-family: "Ubuntu", sans-serif;
 }
 
 .interactPost {
@@ -145,6 +169,7 @@ li a:hover {
     font-size: 30px;
     text-align: center;
     border-radius: 8px;
+    cursor: pointer;
 }
 
 .interactPost:hover {
